@@ -1,4 +1,5 @@
-const likeButtons = document.querySelectorAll(".like-button");
+
+const likeButtons = document.querySelectorAll(".heart");
 
 // Iterate through each like button and add a click event listener
 likeButtons.forEach(likeButton => {

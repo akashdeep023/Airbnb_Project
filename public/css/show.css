@@ -22,6 +22,11 @@
     max-width: 450px !important;
 }
 }
+@media (max-width: 568px) {
+    .show-card-img{
+        height: 280px;
+    }
+}
 .card-body{
     display: flex;
     flex-direction: column;
@@ -29,7 +34,6 @@
 .card-body>p{
     margin-bottom: 0.6rem;
 }
-/* btns ----edit or delete---- */
 .btns{
     display: block !important;
     height: 3rem !important;

@@ -34,7 +34,6 @@
     border-bottom: 2.5px solid rgba(66, 63, 63, 0.579) !important;
     transform: scale(1.05) !important;
     transition: 100ms ease-in-out all;
-    /* background: linear-gradient(to top, #000000, #ffffff); */
     
 }
 
@@ -109,7 +108,7 @@
     .tax-filter-icon-small{
         min-width: 35px;
         padding-left: 18px;
-        padding-top: 14px;
+        padding-top: 12px;   
         display: block;
     }
 }

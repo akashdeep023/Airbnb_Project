@@ -138,7 +138,8 @@
                 <div class="card col listing-card index-res">
                     <div class="index-res-img">
                         <div class="card-img">
-                            <img class="heart" src="https://res.cloudinary.com/dfkqweeha/image/upload/v1698920650/wanderlust_DEV/exbjmnms4qq4f5xmdowa.png" alt="like">
+                            <img class="heart heart-r" src="/Icon/heart-red.png" alt="like" style="opacity: 1; z-index: 5;">
+                            <img class="heart heart-b" src="/Icon/heart-black.png" alt="like" style="z-index: 6;">
                             <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" />
                         </div>
                         <!-- set date  -->
@@ -162,8 +163,33 @@
             </a>            
         <% } %>
     </div>  
-<!-- </html> -->
 <script src="/js/filter.js"></script>
+<script>
+    let heartR = document.querySelectorAll(".heart-r")
+    let heartB = document.querySelectorAll(".heart-b")
+    for (const heartb of heartB) {
+        heartb.addEventListener("click", ()=>{
+            // heartb.style.zIndex = "4"
+            heartb.style.display = "none"
+            heartr.style.display = "block"
+        })     
+    }
+    for (const heartr of heartR) {
+        heartr.addEventListener("click", ()=>{
+            // heartr.style.zIndex = "3"
+            heartr.style.display = "none"
+            heartb.style.display = "block"
+
+        })     
+    }
+    // let heart = document.querySelectorAll(".heart")
+    // for (const dil of heart) {
+    //     dil.addEventListener("click",()=>{
+    //         console.log(dil);
+    //     })
+    // }
+
+</script>
 
 
 <!-- <li>Description : <%= //listing.description %></li>

@@ -4,9 +4,7 @@ const errorContainer = document.getElementById("errorContainer");
 
 fileInput.addEventListener("click", function () {
   if (fileInput.files.length == 0) {
-    // if (errorContainer.innerText != "") {
     varify.checked = false;
-    // }
     return;
   }
 });
