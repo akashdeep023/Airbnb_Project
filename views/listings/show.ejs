@@ -1,0 +1,104 @@
+<link rel="stylesheet" href="/css/show.css">
+<% layout("/layouts/boilerplate") %>
+<script>
+    const mapToken = "<%= process.env.MAP_TOKEN %>";
+    // const listing = <%#- JSON.stringify(listing) %>;
+    const listing = JSON.parse('<%- JSON.stringify(listing) %>');
+</script>
+    <div class="row mt-3 show-main">
+        <div class="show-body">
+            <div class="col-8 offset-2  ">
+                <h3 class="ms-3"><%= listing.title %> </h3>
+            </div>
+            <div class="card col-8 offset-2 show-card listing-card">
+                <div class="show-card-img">                
+                    <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing_image">
+                </div>
+                <div class="card-body ms-1">
+                    <p class="card-text"> Owned by: <b><i><%= listing.owner.username %></i></b></p>
+                    <p class="card-text"> <%= listing.description %> </p>
+                    <p class="card-text"> &#8377; <%= listing.price.toLocaleString("en-In") %> / night </p>
+                    <p class="card-text"> <%= listing.location %>, <%= listing.country %>  <i class="fa-solid fa-location-dot" style="margin-right: 1rem; font-size: 1.25rem;"></i></p>
+                    <!-- <p class="card-text"> <%# listing.country %> </p> -->
+                </div>
+            </div>
+            <!-- Authorization  -->
+            <% if(currUser && currUser._id.equals(listing.owner._id)){ %>
+            <div class="btns offset-2 ">
+                <div class="btns-edit">
+                    <a type="button" href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-1 offset-3 edit-btn">Edit</a>
+                    <form method="post" action="/listings/<%= listing._id %>?_method=DELETE">
+                        <button class="btn btn-dark offset-4 del-btn">Delete</button>
+                    </form> 
+                </div>
+            </div>           
+        
+            <% } %>
+            <!-- --------------- review ------------- -->
+            <hr class="mt-2">
+            <div class="col-8 offset-2">
+                <% if(currUser){ %>
+                <h4>Leave a Review</h4>
+                <form method="post" action="/listings/<%= listing._id %>/reviews" class="needs-validation" novalidate>
+                    <div class=" mt-3">
+                        <label class="form-lable" for="rating">Rating</label>
+                        <!-- <input class="form-range" type="range" min="1" max="5" name="review[rating]" id="rating"> -->                
+                    <fieldset class="starability-slot">
+                        <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked aria-label="No rating." />
+                        <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+                        <label for="first-rate1" title="Terrible">1 star</label>
+                        <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+                        <label for="first-rate2" title="Not good">2 stars</label>
+                        <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+                        <label for="first-rate3" title="Average">3 stars</label>
+                        <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+                        <label for="first-rate4" title="Very good">4 stars</label>
+                        <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+                        <label for="first-rate5" title="Amazing">5 stars</label>
+                    </fieldset>
+                    </div>
+                    <div class="mb-3 ">
+                        <label class="form-lable" for="comment">Comment</label>
+                        <textarea class="form-control" name="review[comment]" id="comment" cols="30" rows="3" required></textarea>
+                        <div class="invalid-feedback">Please add some comments for review</div>
+                    </div>
+                    <button class="btn btn-success mb-3">Submit</button>
+                </form>
+                <% } %>
+                <% if(listing.reviews.length > 0 ){ %>
+                <p><b>All Reviews <i class="fa-regular fa-pen-to-square"></i></b></p>
+                <div class="row m-1 review-main">
+                    <% for (const review of listing.reviews) { %>
+                        <div class="card col-xs-4 col-sm-12 col-md-12 col-lg-5 review-lg">
+                            <div class="card-body mb-2 review-card">
+                                <p class="starability-result" data-rating="<%= review.rating %>"></p>
+                                <span style="max-width: 80vw;">
+                                    <h5 class="card-title">@<%= review.author.username %> &nbsp; :</h5>
+                                    <p class="card-text mb-1 review-comment"><%= review.comment %></p>
+                                </span>
+                                <!-- <p class="card-text"><%# review.rating %> Stars</p> -->
+                            </div>
+                            <% if(currUser && currUser._id.equals(review.author._id)){ %>
+                            <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" class="mb-1 review-del" method="post">
+                                <button class="btn btn-sm btn-danger">Delete</button>
+                            </form>
+                            <% } %>
+                        </div>
+                    <% } %>                
+                </div>
+                <% } %>
+            </div>
+            <div class="col-8 offset-2 mapImg">
+                <h4>Where you'll be <i class="fa-solid fa-location-crosshairs"></i></h4>
+                <div id="map" style="position: relative;">
+                    <div class="map-zoom-icon">
+                        <div class="icon icon-plus" onclick="zoomin()"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                        <div class="icon icon-min" onclick="zoomout()"><i class="fa-solid fa-magnifying-glass-minus"></i></div>
+                    </div>
+                    <div class="akash"><a href="https://github.com/akashdeep023">AD MAP</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="/js/map.js"></script>
+

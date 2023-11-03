@@ -1,0 +1,77 @@
+/* show.ejs style------------------------------------------------------------------------ */
+@media (max-width: 769px){
+.show-body{
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    width: 100% !important;
+    margin: none;
+    padding: none;
+}
+.show-body>div{
+    width: 100% !important  ;
+}
+.offset-2{
+    margin-left: 0px !important;
+}
+.container{
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px auto !important;
+    max-width: 450px !important;
+}
+}
+.card-body{
+    display: flex;
+    flex-direction: column;
+}
+.card-body>p{
+    margin-bottom: 0.6rem;
+}
+/* btns ----edit or delete---- */
+.btns{
+    display: block !important;
+    height: 3rem !important;
+}.edit-btn, .del-btn{
+    display: inline;
+    width: 5rem !important;
+    margin: 10px !important;
+}.del-btn{
+    display: inline !important;
+}
+.btns-edit{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 50px !important;
+}
+@media (min-width: 991px) {
+    .review-main{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+
+    }
+    .review-lg{
+        margin: 1rem !important;
+        max-height: fit-content !important;
+    }
+}
+.review-del{
+    position: absolute;
+    right: 20px;
+    top: 8px;
+    
+}
+.card-title , .card-text{
+    display: inline !important;
+}
+.card-title{
+    width: 6rem;
+    margin-right: 10px;
+}
+.review-comment{
+    max-width: 80vw;
+}

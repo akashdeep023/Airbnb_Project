@@ -1,0 +1,349 @@
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* width: 100%; */
+}
+
+.container {
+    flex: 1;
+    /* width: auto; */
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* navbar -------------------------------------------------------------------------------------*/
+.navbar {
+    height: 5.5rem;
+    background-color: white;
+}
+
+.container-fluid {
+    margin: 0px 5%;
+
+}
+
+.navbar img.imgAirbnb {
+    margin-top: 7px;
+    height: 2rem;
+    width: 6.2rem;
+    filter: contrast(2);
+}
+
+.navbar img.imgAirbnb-s {
+    height: 2.3rem;
+    width: 2.8rem;
+    filter: contrast(2);
+    margin-top: 4px;
+    display: none;
+}
+
+.fa-compass {
+    color: #fe434d;
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: black !important;
+    font-size: 1.5rem;
+}
+
+.navbar-nav {
+    background-color: rgba(255, 255, 255, 0.928);
+    font-weight: 800;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 707px) {
+    .navbar img.imgAirbnb-s {
+        /* display: block !important; */
+        display: none !important;
+    }
+}
+
+/* footer -------------------------------------------------------------------------------------*/
+.f-info-links a {
+    text-decoration: none;
+    color: black;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+.f-info-links,
+.f-info-socials,
+.f-info-brand {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-socials i {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+
+}
+
+.f-info {
+    text-align: center;
+    display: flex;
+    height: 8rem;
+    background-color: #ebebeb;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+/* card ------------------------------------------------------------------------------------- */
+.card {
+    border: .5px solid grey;
+    margin-bottom: 1rem;
+    height: 20rem;
+    /* width: 20rem;   */
+    overflow: hidden;
+}
+
+.listing-card {
+    border: none !important;
+    padding: 5px;
+}
+
+.card-img-top {
+    width: 100% !important;
+    height: 20rem !important;
+    object-fit: cover !important;
+    opacity: .9;
+    transition: .5s ease-out 0s;
+}
+.heart{
+    width: 22px;
+    position: absolute;
+    z-index: 10;
+    top: 15px;
+    right: 15px;
+    opacity: .5;
+    filter: drop-shadow(1px 1px 5px white);
+    overflow: hidden;
+}
+.heart:hover{
+    opacity: 1;
+}
+@media (max-width: 1400px) and (min-width: 1199px) {
+    .heart{
+        right: 45px;
+    }
+}
+@media (max-width: 767px) {
+    .heart{
+        right: 105px;
+    }
+}
+@media (max-width: 586px) {
+    .heart{
+        position: relative;
+        top: 10px;
+        left: 10px;
+        /* right: 19vw; */
+    }
+    .card-img-top{
+        height: 100%;
+        position: relative;
+        top: -25px;
+    }
+}
+@media (width: 767px) {
+    .heart{
+        position: relative;
+        right: 100px;
+    }
+}
+
+/* -------hover effect--------------------------------------------------------------------------------------------- */
+.show-card-img {
+    /* height: 17rem !important; */
+    overflow: hidden !important;
+    border-radius: 1rem !important;
+    display: flex;
+}
+
+.card-img {
+    height: 20rem !important;
+    max-width: 320px;
+    overflow: hidden !important;
+    border-radius: 1rem !important;
+    box-shadow: 0px 6px 5px black !important;
+    margin-bottom: 10px;
+
+}
+
+.card-img-top:hover {
+    transform: scale(1.125) !important;
+    transition: .5s ease-in-out 0s;
+    filter: contrast(1.25);
+    opacity: 1;
+    cursor: pointer;
+}
+
+/* ------------------------------------------ */
+.card-body {
+    margin-top: 5px;
+    padding: 0 !important;
+}
+
+.card-text p {
+    font-weight: 400 !important;
+}
+
+.listing-link {
+    text-decoration: none !important;
+    cursor: default;
+}
+
+/* new.ejs style -------------------------------------------------------------------------------------*/
+.add-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/* edit.ejs style -------------------------------------------------------------------------------------*/
+.edit-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+@media (max-width: 768px) {
+    .edit-btn {
+        width: 4rem !important;
+    }
+
+    #map {
+        height: 350px !important;
+    }
+
+    .mapImg {
+        /* padding: none; */
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+.listingImg {
+    width: 200px;
+    height: 150px;
+    border-radius: 10px;
+}
+
+/* map ------------------------------------------------------------------------------------- */
+#map {
+    height: 500px;
+    width: 100%;
+    border-radius: 1rem;
+    border: 1px solid rgba(0, 128, 0, 0.428);
+}
+
+.mapboxgl-ctrl-bottom-left,
+.mapboxgl-ctrl-bottom-right {
+    display: none !important;
+}
+
+#map {
+    position: relative;
+}
+
+.map-zoom-icon {
+    /* border-radius: 3px; */
+    font-size: 2rem;
+    color: black;
+    z-index: 10;
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    /* border: 1px solid black; */
+    background-color: rgba(0, 0, 0, 0.611);
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.6rem;
+    width: 1.6rem;
+    padding: 19px 15px 15px 19px;
+    margin: 1px;
+    border-radius: 3px;
+    opacity: .7;
+}
+
+.icon:active {
+    opacity: 1;
+    background-color: white;
+
+}
+
+.icon>i {
+    font-size: 1.5rem;
+    margin: none;
+    cursor: pointer;
+}
+
+.akash {
+    z-index: 10;
+    font-size: .8rem;
+    color: white !important;
+    text-decoration: none !important;
+    font-weight: 800;
+    padding: 0px 10px;
+    outline-style: ridge;
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+}
+
+/* indes.ejs style -------------------------------------------------------------------------------------*/
+@media (max-width: 769px) {
+    .index-res {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .index-res-img {
+        width: 320px;
+    }
+    
+    .container{
+        display: flex !important;
+        flex-direction: column;
+        margin-bottom: 15px;
+        margin-left: 15px;
+    }
+}
+@media (max-width: 355px) {
+    .card-img {
+        max-width: 290px;
+        height: 19rem !important;
+        max-width: 290px;
+        overflow: hidden !important;
+        border-radius: 1rem !important;
+        box-shadow: 0px 6px 5px rgb(0, 0, 0) !important;
+        margin-bottom: 15px;
+        margin-left: 15px;
+    
+    }
+    .card-text{
+        margin-left: 15px;
+    }
+}
+

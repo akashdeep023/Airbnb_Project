@@ -1,0 +1,115 @@
+/* filters ------------------------------------------------------------------------------------- */
+.filters-main {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+}
+
+#filters {
+    display: flex;
+    width: 100%;
+    overflow-x: scroll;
+    align-items: center;
+    height: 90px;
+    margin-top: 5px;
+}
+
+#filters::-webkit-scrollbar {
+    display: none;
+}
+
+.filter {
+    text-align: center;
+    margin-right: 2.5rem;
+    margin-top: 1rem;
+    opacity: 0.6;
+    transition: 100ms ease-in-out all;
+
+}
+
+.filter:hover {
+    opacity: 1 !important;
+    cursor: pointer;
+    border-bottom: 2.5px solid rgba(66, 63, 63, 0.579) !important;
+    transform: scale(1.05) !important;
+    transition: 100ms ease-in-out all;
+    /* background: linear-gradient(to top, #000000, #ffffff); */
+    
+}
+
+.tax-info {
+    display: none;
+    text-decoration: underline;
+}
+
+.price-info {
+    display: inline;
+}
+
+.tax-toggle {
+    border: 1px solid rgba(0, 0, 0, 0.174);
+    border-radius: 12px;
+    height: 3rem;
+    min-width: 300px;
+    width: fit-content !important;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    font-weight: 800;
+    
+}
+
+.tax-filter {
+    justify-self: flex-end;
+    min-width: 280px;
+}
+
+.tax-switch {
+    height: 20px;
+}
+
+.tax-sticky {
+    display: none;
+}
+.tax-filter-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px auto;
+    min-width: 120px;
+}
+.tax-filter-icon-small{
+    display: none;
+}
+.filter>p{
+    display:-block;
+    white-space: nowrap;
+    font-weight: 800;
+    font-size: 0.7rem;
+}
+
+@media (max-width: 767px) {
+    .tax-toggle {
+        display: block;
+        position: sticky !important;
+        top: 5.5rem !important;
+        z-index: 15;
+        margin: 0px auto !important;
+        padding: 0.8rem 2rem 0.8rem 0rem;
+    }
+    .tax-filter {
+        display: none;
+    }
+    .tax-filter-icon{
+        display: none;
+    }
+    .tax-filter-icon-small{
+        min-width: 35px;
+        padding-left: 18px;
+        padding-top: 14px;
+        display: block;
+    }
+}
