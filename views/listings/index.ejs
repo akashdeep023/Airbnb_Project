@@ -78,7 +78,7 @@
                 <div><img src="/Icon/15.png" alt="icon" style="width: 25px; height: 25px;"></div>
                 <p>Tropical</p>
             </div>
-            <div class="filter">
+            <!-- <div class="filter">
                 <div><img src="/Icon/16.png" alt="icon" style="width: 25px; height: 25px;"></div>
                 <p>National parks</p>
             </div>
@@ -105,7 +105,7 @@
             <div class="filter">
                 <div><img src="/Icon/22.png" alt="icon" style="width: 25px; height: 25px;"></div>
                 <p>Earth homes</p>
-            </div>
+            </div> -->
         </div>
         <div class="tax-toggle tax-filter-icon me-2 ms-2 ">
             <div class="form-check form-switch form-check-reverse pe-1">
@@ -165,29 +165,33 @@
     </div>  
 <script src="/js/filter.js"></script>
 <script>
-    let heartR = document.querySelectorAll(".heart-r")
-    let heartB = document.querySelectorAll(".heart-b")
-    for (const heartb of heartB) {
-        heartb.addEventListener("click", ()=>{
-            // heartb.style.zIndex = "4"
-            heartb.style.display = "none"
-            heartr.style.display = "block"
-        })     
-    }
-    for (const heartr of heartR) {
-        heartr.addEventListener("click", ()=>{
-            // heartr.style.zIndex = "3"
-            heartr.style.display = "none"
-            heartb.style.display = "block"
-
-        })     
-    }
-    // let heart = document.querySelectorAll(".heart")
-    // for (const dil of heart) {
-    //     dil.addEventListener("click",()=>{
-    //         console.log(dil);
-    //     })
+    // let heartR = document.querySelectorAll(".heart-r")
+    // let heartB = document.querySelectorAll(".heart-b")
+    // for (const heartb of heartB) {
+    //     heartb.addEventListener("click", ()=>{
+    //         heartb.style.zIndex = "4"
+    //     })     
     // }
+    // for (const heartr of heartR) {
+    //     heartr.addEventListener("click", ()=>{
+    //         heartr.style.zIndex = "3"
+    //     })     
+    // }
+
+    let heart1 = document.querySelectorAll(".heart")
+    // for (const heart1 of heart) {
+    for(let i = 1; i<  heart1.length; i++){
+        console.log(heart1[i])
+        heart1[i].addEventListener("click", ()=>{
+            console.log(`click heart: ${heart1[i]}`)
+        // heart1.addEventListener("click", ()=>{
+        //     for (const h of heart1) {
+        //         // console.log(h)
+        //         h[0].style.zIndex = "4"
+        //         h[1].style.zIndex = "3"                
+        //     }
+        })     
+    }
 
 </script>
 
