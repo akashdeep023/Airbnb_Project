@@ -32,7 +32,7 @@
                 </div>
                 <div class="m-b3">
                     <label for="categery" class="form-label">Categery</label>
-                    <select id="categery" name="listing[categery]]" class="form-select border border-black border-opacity-50 mb-2"  multiple >
+                    <!-- <select id="categery" name="listing[categery]]" class="form-select border border-black border-opacity-50 mb-2"  multiple > -->
                         <option selected >Open this select menu</option>
                         <option value="1">Beachfront</option>
                         <option value="2">Cabins</option>
@@ -69,8 +69,14 @@
                     <input type="text" placeholder="Enter Location" name="listing[location]" class="form-control border border-black border-opacity-50" required> 
                     <div class="invalid-feedback">Location should be valid</div> 
                 </div>                                
-                <button class="btn btn-dark add-btn mb-3" >Add</button>                
+                <button class="btn btn-dark add-btn mb-3" onclick="displayBtn()">Add</button>                
             </form>
         </div>
     </div>
+    <script>
+        displayBtn = function(){
+            let addBtn = document.getElementsByClassName(".btn-dark");
+            addBtn.style.display = "none"
+        }
+    </script>
     <script src="/js/newImg-size.js"></script>
