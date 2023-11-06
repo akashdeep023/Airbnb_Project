@@ -1,5 +1,12 @@
 <link rel="stylesheet" href="/css/show.css">
 <% layout("/layouts/boilerplate") %>
+<style>
+    @media (max-width:768px) {
+        .alert{
+            left: 17%;
+        }        
+    }
+</style>
 <script>
     const mapToken = "<%= process.env.MAP_TOKEN %>";
     // const listing = <%#- JSON.stringify(listing) %>;

@@ -1,10 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WonderLust</title>
-</head> -->
 <%- layout("/layouts/boilerplate.ejs") %>
     <div class="row mt-0 mx-auto">
         <div class="col-md-8 mx-auto">
@@ -39,8 +32,8 @@
                 </div>
                 <div class="m-b3">
                     <label for="categery" class="form-label">Categery</label>
-                    <select id="categery" class="form-select border border-black border-opacity-50 mb-2"  multiple >
-                        <option selected class="w-50%">Open this select menu</option>
+                    <select id="categery" name="listing[categery]]" class="form-select border border-black border-opacity-50 mb-2"  multiple >
+                        <option selected >Open this select menu</option>
                         <option value="1">Beachfront</option>
                         <option value="2">Cabins</option>
                         <option value="3">OMG</option>
@@ -81,4 +74,3 @@
         </div>
     </div>
     <script src="/js/newImg-size.js"></script>
-<!-- </html> -->

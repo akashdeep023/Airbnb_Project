@@ -1,19 +1,10 @@
 <style>
 /* flush animation -------------------------------------------------------------------------------------  */
-    .alert{
-        display: flex;
-        justify-content: center;
-        z-index: 1;
+    .anima{
         position: absolute;
-        top: calc(5.5rem - 90px);
-        /* top: 5.5rem; */
+        top: calc(5.5rem );
         animation: slide-in 3s ease-in forwards;
-    }
-    @media (max-width:768px) {
-        .alert{
-            /* left: 17%; */
-        }
-        
+        z-index: 20;
     }
     @keyframes slide-in {
         0% {
@@ -26,20 +17,20 @@
             top: 5.5rem;
         }
         100%{
-            top: calc(5.5rem - 90px);
+            top: calc(5.5rem - 190px);
         }
     }
 </style>
 <!-- add on boilerplate -->
 <% if(success && success.length){ %>
-<div class="alert alert-success alert-dismissible fade show col-8 offset-2" role="alert">
+<div class="alert alert-success alert-dismissible fade show col-8 offset-2 anima" role="alert">
     <b><%= success %></b>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 <% } %>
 
 <% if(error && error.length){ %>
-<div class="alert alert-danger alert-dismissible fade show col-8 offset-2" role="alert">
+<div class="alert alert-danger alert-dismissible fade show col-8 offset-2 anima" role="alert">
     <b><%= error %></b>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
