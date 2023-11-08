@@ -86,6 +86,14 @@ app.use((req,res,next)=>{
     res.locals.currUser = req.user;
     next();
 })
+
+// Get the user's IP address------
+app.use((req, res,next) => {
+    const userIP = req.ip; 
+    console.log(`${res.locals.currUser} IP address is:- ${userIP}`);
+    next();
+});
+
 app.use("/",userRouter);
 app.use("/listings",listingRouter)
 app.use("/listings/:id/reviews",reviewRouter)
