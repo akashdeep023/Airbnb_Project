@@ -83,3 +83,17 @@ module.exports.destroyListing = async(req,res,next)=>{
     console.log("delete")
     res.redirect("/listings");
 }
+
+module.exports.filter = async(req,res,next)=>{
+    let {q} = req.query;
+    console.log(q)
+    let allListing = await Listing.find({category: { $all: [q] }});
+    // console.log(allListing)
+    if(allListing){
+        res.render("listings/index.ejs",{allListing}); 
+        return;
+    }else{
+        req.flash("error","Listings is not here")
+        res.redirect("/listings")
+    }
+}
