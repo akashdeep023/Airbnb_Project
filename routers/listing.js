@@ -12,6 +12,9 @@ const multer  = require('multer')            //install multer package in npm || 
 const {storage} = require("../cloudConfig.js")
 const upload = multer({storage});
 
+//Filter-----------------
+router.get("/filter",listingController.filter);
+
 // Router.route-----------------------
 router.route("/")
     .get(wrapAsync(listingController.index))                                                //Index Route----------
