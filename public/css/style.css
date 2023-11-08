@@ -212,6 +212,9 @@ body::-webkit-scrollbar {
     background-color: #fe424d !important;
     border: none !important;
 }
+.form-label{
+    font-weight: 700;
+}
 
 /* edit.ejs style -------------------------------------------------------------------------------------*/
 .edit-btn {
@@ -269,11 +272,11 @@ body::-webkit-scrollbar {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: rgb(255, 255, 255);
 }
 
 .icon {
     box-shadow: 2px 2px 1px black , -2px -2px -1px black;
-    background-color: rgb(255, 255, 255);
     height: fit-content;
     width: fit-content;
     display: flex;
@@ -281,10 +284,10 @@ body::-webkit-scrollbar {
     justify-content: center;
     height: 1.6rem;
     width: 1.6rem;
-    padding: 19px 15px 15px 19px;
+    padding: 17px 15px 15px 19px;
     margin: 1px;
-    border-radius: 3px;
-    opacity: .7;
+    /* border-radius: 3px; */
+    opacity: .4;
 }
 
 .icon:active {
@@ -295,6 +298,10 @@ body::-webkit-scrollbar {
     font-size: 1.5rem;
     margin: none;
     cursor: pointer;
+}
+.icon-plus{
+    border-bottom: 1px solid black;
+    padding-bottom: 18px;
 }
 
 .akash {
