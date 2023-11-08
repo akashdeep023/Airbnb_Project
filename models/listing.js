@@ -6,6 +6,7 @@ const listingSchema = new Schema({
     title: {
         type: String,
         required: true,
+        unique: true,
     },
     description: String,
     image: {
@@ -36,8 +37,8 @@ const listingSchema = new Schema({
           required: true
         }
     },
-    categery: {
-        type: [Number],
+    category: {
+        type: [String],
     } 
 
 })
