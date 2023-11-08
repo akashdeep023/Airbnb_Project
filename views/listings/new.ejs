@@ -26,14 +26,15 @@
                         <p id="errorContainer"></p>                                     
                     </div>                    
                     <div class="col-2">
-                        <label class="form-control border border-white" style="margin-left: -15px;" for="verify">Verify</label>     
-                        <input type="checkbox" id="verify" class="form-btn btn ms-2 border border-black border-opacity-50"  required style="height: 25px; width:25px;">           
+                        <label class="form-control border border-white" style="margin-left: -15px;font-weight: 700;" for="verify">Verify</label>     
+                        <input type="checkbox" id="verify" class="form-btn btn ms-2 border border-black border-opacity-50"  required style="height: 25px; width:25px;">    
+                        <div class="invalid-feedback">Varify</div> 
                     </div>
                 </div>
                 <div class="m-b3">
-                    <label for="categery" class="form-label">Categery</label>
-                    <!-- <select id="categery" name="listing[categery]]" class="form-select border border-black border-opacity-50 mb-2"  multiple > -->
-                        <option selected >Open this select menu</option>
+                    <label for="category" class="form-label">Choose Category</label>
+                    <select id="category" name="listing[category]" class="form-select border border-black border-opacity-50 mb-2"  multiple required style="font-size: .95rem;">
+                        <option disabled>(Single:&nbsp;  click) & (Multiple:&nbsp; ctrl+click)</option>
                         <option value="1">Beachfront</option>
                         <option value="2">Cabins</option>
                         <option value="3">OMG</option>
@@ -48,9 +49,16 @@
                         <option value="12">Countryside</option>
                         <option value="13">Treehouse</option>
                         <option value="14">Trending</option>
-                        <option value="15">Tropical</option>
-                         
+                        <option value="15">Tropical</option>                         
+                        <option value="16">National parks</option>                         
+                        <option value="17">Casties</option>                         
+                        <option value="18">Camping</option>                         
+                        <option value="19">Top of the world</option>                         
+                        <option value="20">Luxe</option>                         
+                        <option value="21">Iconic cities</option>                         
+                        <option value="22">Earth homes</option>                         
                     </select>
+                    <div class="invalid-feedback">Choose category name</div> 
                 </div>
                 <div class="row">
                     <div class="mb-3 col-md-4">
@@ -69,14 +77,9 @@
                     <input type="text" placeholder="Enter Location" name="listing[location]" class="form-control border border-black border-opacity-50" required> 
                     <div class="invalid-feedback">Location should be valid</div> 
                 </div>                                
-                <button class="btn btn-dark add-btn mb-3" onclick="displayBtn()">Add</button>                
+                <button class="btn btn-dark add-btn mb-3">Add</button>                
             </form>
         </div>
     </div>
-    <script>
-        displayBtn = function(){
-            let addBtn = document.getElementsByClassName(".btn-dark");
-            addBtn.style.display = "none"
-        }
-    </script>
+
     <script src="/js/newImg-size.js"></script>
