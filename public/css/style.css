@@ -286,7 +286,6 @@ body::-webkit-scrollbar {
     width: 1.6rem;
     padding: 17px 15px 15px 19px;
     margin: 1px;
-    /* border-radius: 3px; */
     opacity: .4;
 }
 
