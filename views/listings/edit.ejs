@@ -33,17 +33,37 @@
                         <p id="errorContainer"></p>                                     
                     </div>
                     <div class="col-2">
-                        <label class="form-control border border-white" style="margin-left: -15px;" for="verify">Verify</label>     
-                        <input type="checkbox" id="verify" class="form-btn btn ms-2 border border-black border-opacity-50"  required style="height: 25px; width:25px;">           
+                        <label class="form-control border border-white" style="margin-left: -15px;font-weight: 700;" for="verify">Verify</label>     
+                        <input type="checkbox" checked id="verify" class="form-btn btn ms-2 border border-black border-opacity-50"  required style="height: 25px; width:25px;">  
+                        <div class="invalid-feedback">Varify</div> 
                     </div>
                 </div>
                 <div class="m-b3">
-                    <label for="price" class="form-label">Categery</label>
-                    <select class="form-select border border-black border-opacity-50 mb-2" aria-label="Default select example">
-                        <option selected class="w-50%">Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <label for="category" class="form-label">Choose Category</label>
+                    <select id="category" name="listing[category]" class="form-select border border-black border-opacity-50 mb-2"  multiple style="font-size: .95rem;">
+                        <option disabled>(Single:&nbsp;  click) & (Multiple:&nbsp; ctrl+click)</option>
+                        <option value="1">Beachfront</option>
+                        <option value="2">Cabins</option>
+                        <option value="3">OMG</option>
+                        <option value="4">Lake</option>
+                        <option value="5">Design</option>
+                        <option value="6">Amazing pools</option>
+                        <option value="7">Farms</option>
+                        <option value="8">Amazing views</option>
+                        <option value="9">Rooms</option>
+                        <option value="10">Lakefront</option>
+                        <option value="11">Tiny homes</option>
+                        <option value="12">Countryside</option>
+                        <option value="13">Treehouse</option>
+                        <option value="14">Trending</option>
+                        <option value="15">Tropical</option>                       
+                        <option value="16">National parks</option>                         
+                        <option value="17">Casties</option>                         
+                        <option value="18">Camping</option>                         
+                        <option value="19">Top of the world</option>                         
+                        <option value="20">Luxe</option>                         
+                        <option value="21">Iconic cities</option>                         
+                        <option value="22">Earth homes</option>                           
                     </select>
                 </div>
                 <div class="row">
