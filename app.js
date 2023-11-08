@@ -90,6 +90,7 @@ app.use((req,res,next)=>{
 // Get the user's IP address------
 app.use((req, res,next) => {
     const userIP = req.ip; 
+    console.log(req)
     console.log(`${res.locals.currUser} IP address is:- ${userIP}`);
     next();
 });
