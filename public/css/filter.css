@@ -14,6 +14,10 @@
     height: 90px;
     margin-top: 5px;
 }
+#filters>a{
+    margin-right: 2.5rem;
+    text-decoration: none;
+}
 
 #filters::-webkit-scrollbar {
     display: none;
@@ -21,19 +25,18 @@
 
 .filter {
     text-align: center;
-    margin-right: 2.5rem;
+    margin-right: 0rem;
     margin-top: 1rem;
     opacity: 0.6;
-    transition: 100ms ease-in-out all;
+    transition: 150ms ease-in-out all;
 
 }
 
 .filter:hover {
     opacity: 1 !important;
-    cursor: pointer;
     border-bottom: 2.5px solid rgba(66, 63, 63, 0.579) !important;
     transform: scale(1.05) !important;
-    transition: 100ms ease-in-out all;
+    transition: 150ms ease-in-out all;
     
 }
 
@@ -88,6 +91,7 @@
     white-space: nowrap;
     font-weight: 800;
     font-size: 0.7rem;
+    color: black;
 }
 
 @media (max-width: 767px) {
