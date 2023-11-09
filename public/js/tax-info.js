@@ -1,4 +1,5 @@
 let taxSwitchs = document.querySelectorAll("#flexSwitchCheckDefault");
+let changeAfter = document.querySelectorAll(".changeAfter");
 for (let taxSwitch of taxSwitchs) {
   taxSwitch.addEventListener("click", () => {
     let taxInfo = document.getElementsByClassName("tax-info");
@@ -6,6 +7,9 @@ for (let taxSwitch of taxSwitchs) {
     for (tax of taxInfo) {
       if (tax.style.display != "inline") {
         tax.style.display = "inline";
+        for (const changeA of changeAfter) {
+          changeA.innerHTML = "Display total after taxes ..";          
+        }
       } else {
         tax.style.display = "none";
       }
@@ -14,7 +18,9 @@ for (let taxSwitch of taxSwitchs) {
       if (price.style.display != "none") {
         price.style.display = "none";
       } else {
-        price.style.display = "inline";
+        price.style.display = "inline";for (const changeA of changeAfter) {
+          changeA.innerHTML = "Display total before taxes ";          
+        }
       }
     }
   });
