@@ -3,7 +3,8 @@ const map = new mapboxgl.Map({
   container: "map",
   style: "mapbox://styles/mapbox/streets-v12",       
   center: listing.geometry.coordinates,               
-  zoom: 1,                                        
+  zoom: 1,  
+  cooperativeGestures: true                                      
 });
 const marker1 = new mapboxgl.Marker({ color: "red" }) 
   .setLngLat(listing.geometry.coordinates)            
@@ -18,7 +19,17 @@ map.zoomTo(12, {
 });
 
 map.setMaxZoom(18.75);
-map.scrollZoom.disable();
+// map.scrollZoom.disable();
+
+// Add the control to the map.
+map.addControl(
+  new MapboxGeocoder({
+  accessToken: mapboxgl.accessToken,
+  mapboxgl: mapboxgl
+  })
+);
+
+map.addControl(new mapboxgl.FullscreenControl());
 
 // ----------------zoomin - zoomout button----------------------------------------
 let zoomin = () => {
