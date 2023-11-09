@@ -84,9 +84,9 @@ app.use((req,res,next)=>{
     res.locals.success = req.flash("success")   
     res.locals.error = req.flash("error")
     res.locals.currUser = req.user;
-    console.log("<<================================================>>")
+    console.log("<<========================START========================>>")
     console.log(`rawheaders:- ${req.get('rawHeaders')}`)
-    console.log(`Device name:- ${req.get('user-agent')}`)
+    console.log(`rawheaders:- ${req.rawHeaders.slice(";").join("     ")}`)
     console.log(`Country name:- ${req.get('cf-ipcountry')}`)
     console.log(`Referar name:- ${req.get('referer')}`)
     console.log(`Use site name:- ${req.get('sec-ch-ua')}`)
@@ -96,6 +96,7 @@ app.use((req,res,next)=>{
     console.log(`Connecting IP address is:- ${req.get('cf-connecting-ip')}`)
     console.log(`Forwarded IP address is:- ${req.get('x-forwarded-for')}`)
     console.log(`User detail:- ${res.locals.currUser}`)
+    console.log("<<========================END========================>>")
     next();
 });
 
