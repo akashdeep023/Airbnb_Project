@@ -259,7 +259,23 @@ body::-webkit-scrollbar {
 #map {
     position: relative;
 }
-
+.mapboxgl-ctrl-geocoder {
+    right: 40px;
+}
+.mapboxgl-ctrl-geocoder--powered-by{
+    display: none !important;
+}
+.mapboxgl-ctrl-geocoder--input{
+    border: none !important;
+}
+.mapboxgl-ctrl-geocoder{
+    border: 1px solid rgb(137, 137, 137) !important;
+}
+.mapboxgl-ctrl-group{
+    position: relative;
+    top: -43.7px;
+    right: 3px;
+}
 .map-zoom-icon {
     border-radius: 6px;
     font-size: 2rem;
@@ -267,12 +283,13 @@ body::-webkit-scrollbar {
     z-index: 10;
     position: absolute;
     right: 8px;
-    top: 20px;
+    top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(137, 137, 137) !important;
 }
 
 .icon {
