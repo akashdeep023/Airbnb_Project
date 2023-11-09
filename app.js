@@ -84,14 +84,18 @@ app.use((req,res,next)=>{
     res.locals.success = req.flash("success")   
     res.locals.error = req.flash("error")
     res.locals.currUser = req.user;
-    next();
-})
-
-// Get the user's IP address------
-app.use((req, res,next) => {
-    const userIP = req.ip; 
-    console.log(req)
-    console.log(`${res.locals.currUser} IP address is:- ${userIP}`);
+    console.log("<<================================================>>")
+    console.log(`rawheaders:- ${req.get('rawHeaders')}`)
+    console.log(`Device name:- ${req.get('user-agent')}`)
+    console.log(`Country name:- ${req.get('cf-ipcountry')}`)
+    console.log(`Referar name:- ${req.get('referer')}`)
+    console.log(`Use site name:- ${req.get('sec-ch-ua')}`)
+    console.log(`Mobile name:- ${req.get('sec-ch-ua-mobile')}`)
+    console.log(`Platform name:- ${req.get('sec-ch-ua-platform')}`)
+    console.log(`Client IP address is:- ${req.get('true-client-ip')}`)
+    console.log(`Connecting IP address is:- ${req.get('cf-connecting-ip')}`)
+    console.log(`Forwarded IP address is:- ${req.get('x-forwarded-for')}`)
+    console.log(`User detail:- ${res.locals.currUser}`)
     next();
 });
 
