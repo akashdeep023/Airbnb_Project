@@ -272,9 +272,22 @@ body::-webkit-scrollbar {
     border: 1px solid rgb(137, 137, 137) !important;
 }
 .mapboxgl-ctrl-group{
-    position: relative;
-    top: -43.7px;
-    right: 3px;
+    position: absolute;
+    z-index: 3;
+    top: 4px;
+    right: 2.8px;
+}
+@media (max-width: 639px) {
+    .mapboxgl-ctrl-geocoder{
+        height: 40px !important;
+        width: 160px !important;
+    }
+    .mapboxgl-ctrl-geocoder--input{
+        height: 40px !important;
+    }
+    .mapboxgl-ctrl-geocoder--icon-search{
+        top: 9px !important;
+    }
 }
 .map-zoom-icon {
     border-radius: 6px;
