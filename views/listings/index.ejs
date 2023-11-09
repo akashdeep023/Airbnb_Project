@@ -168,14 +168,14 @@
         <div class="tax-toggle tax-filter ">
             <div class="form-check form-switch form-check-reverse" >
                 <input class="form-check-input tax-switch" type="checkbox" role="switch" id="flexSwitchCheckDefault" style="cursor: pointer;">
-                <label class="form-check-label" for="flexSwitchCheckDefault" style="cursor: pointer;">Display total before taxes</label>
+                <label class="form-check-label changeAfter" for="flexSwitchCheckDefault" style="cursor: pointer;">Display total before taxes</label>
             </div>
         </div>
     </div>
     <div class="tax-toggle tax-sticky">
         <div class="form-check form-switch form-check-reverse">
             <input class="form-check-input tax-switch" type="checkbox" role="switch" id="flexSwitchCheckDefault" style="cursor: pointer;">
-            <label class="form-check-label" for="flexSwitchCheckDefault" style="cursor: pointer;">Display total before taxes</label>
+            <label class="form-check-label " for="flexSwitchCheckDefault" style="cursor: pointer;">Display total before taxes</label>
         </div>
     </div>
     <div class="row row-cols-xxl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-1">
@@ -201,7 +201,7 @@
                                 <span>&nbsp;<%= listing.location %>, <%= listing.country %></span>
                                 <span style="display: block;">&nbsp;<%= date %>-<%- dateA %> &nbsp;&nbsp;<%= month %></span>
                                 <span class="price-info"><span class=" fw-bold">&nbsp; &#8377;<%= listing.price.toLocaleString("en-IN") %> </span> night</span>
-                                <i class="tax-info"> &nbsp; <i class="rs-sign"><b> &#8377;</i><%= (listing.price*1.18).toLocaleString("en-In") %></b> &nbsp; total before taxes</i>
+                                <i class="tax-info"> &nbsp; <i class="rs-sign"><b> &#8377;</i><%= (listing.price*1.18).toLocaleString("en-In") %></b> &nbsp; total after taxes</i>
                             </p>
                         </div>
                     </div>
