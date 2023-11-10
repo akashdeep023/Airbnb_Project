@@ -97,3 +97,7 @@ module.exports.filter = async(req,res,next)=>{
         res.redirect("/listings")
     }
 }
+
+module.exports.filterbtn = (req,res,next)=>{
+    res.render("listings/filterbtn.ejs")
+}

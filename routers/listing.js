@@ -14,6 +14,7 @@ const upload = multer({storage});
 
 //Filter-----------------
 router.get("/filter",listingController.filter);
+router.get("/filterbtn",listingController.filterbtn);
 
 // Router.route-----------------------
 router.route("/")
