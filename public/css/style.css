@@ -1,5 +1,8 @@
 body {
-    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    /* font-family: 'Plus Jakarta Sans', sans-serif !important; */
+    font-family: 'Inknut Antiqua', serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;

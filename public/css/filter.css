@@ -29,15 +29,17 @@
     margin-top: 1rem;
     opacity: 0.6;
     transition: 150ms ease-in-out all;
-
 }
 
 .filter:hover {
     opacity: 1 !important;
-    border-bottom: 2.5px solid rgba(66, 63, 63, 0.579) !important;
+    border-bottom: 2.5px solid rgba(66, 63, 63, 0.679) !important;
     transform: scale(1.05) !important;
-    transition: 150ms ease-in-out all;
-    
+    transition: 150ms ease all;
+}
+.selectedFilter{
+    opacity: 1;
+    border-bottom: 2.5px solid #000;
 }
 
 .tax-info {
@@ -60,7 +62,7 @@
     align-items: center;
     justify-content: center;
     background-color: rgb(255, 255, 255);
-    font-weight: 800;
+    font-weight: 500;
     
 }
 
@@ -89,7 +91,7 @@
 .filter>p{
     display:-block;
     white-space: nowrap;
-    font-weight: 800;
+    font-weight: 600;
     font-size: 0.7rem;
     color: black;
 }
