@@ -13,7 +13,7 @@ const {storage} = require("../cloudConfig.js")
 const upload = multer({storage});
 
 //Filter-----------------
-router.get("/filter",listingController.filter);
+router.get("/filter/:id",wrapAsync(listingController.filter));
 router.get("/filterbtn",listingController.filterbtn);
 
 // Router.route-----------------------
