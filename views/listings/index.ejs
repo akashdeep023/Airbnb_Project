@@ -152,21 +152,17 @@
                     <p>Earth homes</p>
                 </div>
             </a>
+        </div>       
+        <div class="tax-toggle tax-filter-icon filterIcon me-2 ms-2 " onclick="filterClick()">
+            <div class="form-check form-switch form-check-reverse pe-1" style="cursor: pointer;">
+                <i class="fa-solid fa-sliders" id="filter-icon"></i>
+                <label class="form-check-label" for="filter-icon" style="cursor: pointer;">Filters</label>
+            </div>
         </div>
-        <div class="tax-toggle tax-filter-icon me-2 ms-2 ">
-            <a href="/listings/filterbtn">
-                <div class="form-check form-switch form-check-reverse pe-1" style="cursor: pointer;">
-                    <i class="fa-solid fa-sliders" id="filter-icon"></i>
-                    <label class="form-check-label" for="filter-icon" style="cursor: pointer;">Filters</label>
-                </div>
-            </a>
-        </div>
-        <div class="tax-toggle tax-filter-icon-small me-2 ms-2 ">
-            <a href="/listings/filterbtn">
-                <div class="form-check form-switch form-check-reverse pe-0">
-                    <i class="fa-solid fa-sliders ps-1" id="filter-icon" style="cursor: pointer;"></i>
-                </div>
-            </a>
+        <div class="tax-toggle tax-filter-icon-small filterIcon me-2 ms-2 " onclick="filterClick()">
+            <div class="form-check form-switch form-check-reverse pe-0">
+                <i class="fa-solid fa-sliders ps-1" id="filter-icon" style="cursor: pointer;"></i>
+            </div>
         </div>
         <div class="tax-toggle tax-filter ">
             <div class="form-check form-switch form-check-reverse" >
@@ -211,7 +207,7 @@
                 </div>
             </a>            
         <% } %>
-    </div>  
+    </div> 
 <script defer src="/js/filter.js"></script>
 <script>
     // let heartR = document.querySelectorAll(".heart-r")
