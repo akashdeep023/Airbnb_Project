@@ -1,0 +1,124 @@
+.showfilter{
+    display: none; 
+    justify-content: center; 
+    padding: 0px 20px; 
+    height: 100%; 
+    width: 100%;
+}
+.filterbtn{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    width: 90% !important; 
+    max-width: 780px;
+    height: 100% !important; 
+    padding: 0px 10px !important;
+    position: fixed;
+    top: 0px;
+    z-index: 1050;
+    overflow: visible;
+    /* transition: 3s ease-in-out 0s;
+    animation: filterbtnEffect 2s timing-function .5s ease-in-out alternate infinite; */
+}
+.containerblur{
+    filter: blur(7px);
+}
+.filterbtnClick{
+    display: flex; 
+    /* transition: 3s ease-in-out 0s; */
+}
+/* @keyframes filterbtnEffect {
+    0%{
+        top: 40px;
+    }
+    50%{
+        top: 20px;
+    }
+    100%{
+        top: 0px;
+    }
+} */
+div.main{
+    max-width:  780px;
+    width: 100%;
+    height: 90vh;
+    margin: 11px 10px;
+    overflow: auto;
+    background: #ffffff;
+    color: #000;
+    box-shadow: 0px 0px 15px #000;
+    border-radius: 20px !important;
+    position: absolute;
+    top: 30px;
+    scroll-behavior: smooth;
+}
+div.main::-webkit-scrollbar {
+    display: none;
+}
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: .7rem;
+    font-size: .75rem;
+    height: 60px;
+    max-width: 780px;
+    background-color: #ffffff;
+}
+@media (min-width: 780px) {
+    .nav{
+        left: calc((100vw - 780px) /2);
+    }
+}
+@media (max-width: 880px) {
+    .nav{
+        left: calc((100vw - 90%) /2);
+        width: 90%;
+    }
+}
+.fixed-top{
+    position: fixed;
+    top: 40px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+.fixed-bottom{
+    height: 80px;
+    position: fixed;
+    bottom: 26px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.close{
+    height: 1rem;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 1.25rem;
+}
+.container-btn{
+    margin: 50px 0px;
+    padding: 20px;    
+}
+.fixed-top h1{
+    font-size: 1.15rem;
+}
+.bottom-flt{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.bottom-flt a{
+    height: 50px;
+    width: 12rem;
+    margin: 0px 20px;
+    padding: 10px;
+    font-weight: 700;
+}
+.bottom-flt button{
+    margin: 5px 20px 0px 20px;
+    text-decoration: underline;
+    font-weight: 700;
+}
