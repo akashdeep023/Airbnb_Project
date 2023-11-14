@@ -18,12 +18,20 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>  <!--mapbox link-->
 </head>
 <body>
-    <%- include('../includes/navbar.ejs') %>
-    <%- include('../includes/flash.ejs') %>
-    <div class="container"><%- body %></div>
-    <%- include('../includes/footer.ejs') %>
+    <div class="pageblur">
+        <%- include('../includes/navbar.ejs') %>
+        <%- include('../includes/flash.ejs') %>
+        <div class="container"><%- body %></div>
+        <%- include('../includes/footer.ejs') %>
+    </div>
+    <div class="showfilter">
+        <div class="filterbtn">
+            <%- include('../includes/filterbtn.ejs') %>  
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="/js/script.js"></script>     <!-- clint side validate -->
     <script src="/js/tax-info.js"></script>    <!-- tax info indes.ejs page -->
+    <script src="/js/hide.js"></script>    <!-- hide devloper tool -->
 </body>
 </html>
