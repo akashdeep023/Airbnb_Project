@@ -1,12 +1,17 @@
 <% layout("/layouts/boilerplate") %>
 <body>
-    <div class="row mt-3 mx-auto">
+    <div class="row mt-3 mx-auto" style="height: calc(100vh - 15.5rem);">
         <div class="col-md-8 mx-auto">
             <h2>Signup on WonderLust</h2>
             <form action="/signup" method="post" class="needs-validation" novalidate>
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
-                    <input id="username" type="text" placeholder="Enter Username" name="username" class="form-control border border-black border-opacity-50" required> 
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">@</span>
+                        </div>
+                        <input id="username" type="text" placeholder="Enter Username" name="username" class="form-control border border-black border-opacity-50" required> 
+                    </div>
                     <div class="valid-feedback">Looks good!</div>
                     <div class="invalid-feedback">Username should be valid</div>
                 </div>
@@ -21,6 +26,12 @@
                     <input id="password" type="password" placeholder="Enter Password" name="password" class="form-control border border-black border-opacity-50" required> 
                     <div class="valid-feedback">Looks good!</div>
                     <div class="invalid-feedback">Password should be valid</div>
+                </div>
+                <div class="form-check mb-2 mr-sm-2">
+                    <input class="form-check-input" style="opacity: 1;" type="checkbox" id="inlineFormCheck" required>
+                    <label class="form-check-label ms-3 mt-1" for="inlineFormCheck">
+                      Remember me
+                    </label>
                 </div>
                 <button class="btn btn-success">SignUp</button>
             </form>
