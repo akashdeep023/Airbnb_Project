@@ -62,8 +62,10 @@
     align-items: center;
     justify-content: center;
     background-color: rgb(255, 255, 255);
-    font-weight: 500;
-    
+    font-weight: 500;    
+}
+.tax-toggle:hover{
+    border: 1px solid black;
 }
 
 .tax-filter {
@@ -71,10 +73,13 @@
     min-width: 280px;
 }
 
-.tax-switch {
-    height: 20px;
+.tax-switch:checked {
+    height: 40px;
+    background-color: black;
 }
-
+.form-check-input{
+    width: 2rem ;
+}
 .tax-sticky {
     display: none;
 }
@@ -83,7 +88,7 @@
     justify-content: center;
     align-items: center;
     margin: 0px auto;
-    min-width: 120px;
+    min-width: 100px;
 }
 .tax-filter-icon-small{
     display: none;

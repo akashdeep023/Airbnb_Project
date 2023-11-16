@@ -95,6 +95,7 @@ body::-webkit-scrollbar {
     text-align: center;
     display: flex;
     height: 8rem;
+    width: 100vw;
     background-color: #ebebeb;
     margin-top: 1rem;
     flex-wrap: wrap;

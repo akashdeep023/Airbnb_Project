@@ -1,47 +1,39 @@
-.showfilter{
+.showfilter {
     display: none; 
-    justify-content: center; 
-    padding: 0px 20px; 
-    height: 100%; 
+    /* display: flex; */
+    justify-content: center;
+    padding: 0px 20px;
+    height: 100%;
     width: 100%;
 }
-.filterbtn{
+
+.filterbtn {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
-    width: 90% !important; 
+    width: 90% !important;
     max-width: 780px;
-    height: 100% !important; 
+    height: 100% !important;
     padding: 0px 10px !important;
     position: fixed;
     top: 0px;
     z-index: 1050;
     overflow: visible;
-    /* transition: 3s ease-in-out 0s;
-    animation: filterbtnEffect 2s timing-function .5s ease-in-out alternate infinite; */
 }
-.containerblur{
+
+.containerblur {
     filter: blur(7px);
 }
-.filterbtnClick{
-    display: flex; 
-    /* transition: 3s ease-in-out 0s; */
+
+.filterbtnClick {
+    display: flex;
 }
-/* @keyframes filterbtnEffect {
-    0%{
-        top: 40px;
-    }
-    50%{
-        top: 20px;
-    }
-    100%{
-        top: 0px;
-    }
-} */
-div.main{
-    max-width:  780px;
+
+div.main {
+    max-width: 780px;
     width: 100%;
     height: 90vh;
+    max-height: 2000px;
     margin: 11px 10px;
     overflow: auto;
     background: #ffffff;
@@ -50,12 +42,15 @@ div.main{
     border-radius: 20px !important;
     position: absolute;
     top: 30px;
+    margin-bottom: 30px;
     scroll-behavior: smooth;
 }
+
 div.main::-webkit-scrollbar {
     display: none;
 }
-.nav{
+
+.nav {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -65,60 +60,403 @@ div.main::-webkit-scrollbar {
     max-width: 780px;
     background-color: #ffffff;
 }
+
 @media (min-width: 780px) {
-    .nav{
+    .nav {
         left: calc((100vw - 780px) /2);
     }
 }
+
 @media (max-width: 880px) {
-    .nav{
+    .nav {
         left: calc((100vw - 90%) /2);
         width: 90%;
     }
 }
-.fixed-top{
+
+.fixed-top {
     position: fixed;
     top: 40px;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
+    border-bottom: .2px solid rgba(0, 0, 0, 0.1);
 }
-.fixed-bottom{
+
+.fixed-bottom {
     height: 80px;
     position: fixed;
-    bottom: 26px;
+    top: calc((90vh - 38px));
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
+    border-top: .2px solid rgba(0, 0, 0, 0.1);
 }
-.close{
+
+@media (min-height: 2000px) {
+    .fixed-bottom {
+        top: 1962px;
+    }
+}
+
+.close svg {
     height: 1rem;
+    opacity: .5;
     position: absolute;
     top: 20px;
     left: 20px;
     font-size: 1.25rem;
+    transition: 200ms ease 0s;
 }
-.container-btn{
+
+.close svg:hover {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+.container-btn {
     margin: 50px 0px;
-    padding: 20px;    
+    padding: 20px;
 }
-.fixed-top h1{
+
+.fixed-top h1 {
     font-size: 1.15rem;
 }
-.bottom-flt{
+
+.bottom-flt {
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.bottom-flt a{
-    height: 50px;
+
+.bottom-flt a {
+    min-height: 50px;
     width: 12rem;
     margin: 0px 20px;
     padding: 10px;
     font-weight: 700;
 }
-.bottom-flt button{
-    margin: 5px 20px 0px 20px;
+
+.bottom-flt button {
+    margin: 2px 20px 0px 20px;
     text-decoration: underline;
     font-weight: 700;
+}
+
+h2 {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: .5px solid rgba(0, 0, 0, 0.181);
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+h4 {
+    font-size: 1.02rem;
+}
+
+.text {
+    opacity: .75;
+    font-size: .95rem;
+}
+
+.textbig {
+    opacity: .75;
+    font-size: 1rem;
+}
+
+/* input[type="checkbox"], */
+.checkboxBtn {
+    height: 25px !important;
+    width: 25px;
+    accent-color: black;
+    cursor: pointer;
+    opacity: .5;
+}
+
+input[type="checkbox"]:hover,
+input[type="checkbox"]:checked {
+    opacity: 1;
+}
+
+.place-type {
+    font-size: .8rem;
+    font-weight: 700;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.btn-group {
+    height: 70px;
+    width: 100%;
+    --bs-border-radius: 10px;
+}
+
+.btn-group > button {
+    font-weight: 600;
+}
+
+.graph {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid black;
+}
+
+.graphH {
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+    position: relative;
+    z-index: 10;
+    margin-bottom: -60px;
+}
+
+.graph > div {
+    width: 10px;
+    height: 80px;
+    background-color: black;
+    border-radius: 3px;
+    margin: 0px 1px;
+    margin-bottom: -20px;
+    position: relative;
+    /* top: 30px; */
+}
+
+.graph > div:nth-child(n) {
+    top: 70px;
+}
+
+.graph > div:nth-child(2n) {
+    top: 20px;
+}
+
+.graph > div:nth-child(3n) {
+    top: 30px;
+}
+
+.graph > div:nth-child(5n) {
+    top: 10px;
+}
+
+.graph > div:nth-child(7n) {
+    top: 50px;
+}
+
+.graph > div:nth-child(10n) {
+    top: 5px;
+}
+
+.graph > div:nth-child(9n) {
+    top: 15px;
+}
+
+.graph > div:nth-child(9n) {
+    top: 60px;
+}
+
+.graph > div:nth-child(13) {
+    top: 78px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.price-range {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    min-height: 60px;
+    height: fit-content;
+    position: relative;
+    z-index: 15;
+}
+
+.price-range > div {
+    margin: 5px;
+    min-width: 220px;
+    border: 1px solid black;
+    padding: 0px 10px;
+    border-radius: 10px;
+    width: 45%;
+}
+
+.price-range input,
+.price-range input:active {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #ccc;
+    height: 1rem;
+    padding-bottom: 5px;
+}
+
+.room-beds {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-basis: auto;
+    overflow: scroll;
+}
+
+.room-beds::-webkit-scrollbar {
+    display: none;
+}
+
+.room-beds > div {
+    min-width: 60px;
+    padding: 5px 0px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.room-beds > div:hover {
+    border: 1px solid black;
+}
+
+.room-beds > div:active {
+    background-color: black;
+    color: white;
+}
+
+.tier-stay {
+    margin-top: 10px;
+    width: 50%;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+.tier-stay:hover {
+    border: 1px solid black;
+}
+
+.property-type {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.property-type > div {
+    border: 1px solid rgba(0, 0, 0, 0.271);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 22%;
+    min-width: 95px;
+    height: 120px;
+    margin: 1.5%;
+    transition: .5s ease-in-out 0s;
+
+}
+
+.property-type > div:hover {
+    border: 1px solid black;
+}
+
+.property-type > div:active {
+    border: 2px solid black;
+    animation: scalebox 1s 0s ease;
+    transform: scale(.8);
+}
+
+.amenities,
+.language,
+.acc-features,
+.booking {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.amenities > div,
+.language > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 46%;
+    min-width: 175px;
+    margin: 2%;
+}
+
+.amenities > div > span,
+.language > div > p {
+    margin-left: 20px;
+}
+
+.acc-features > div,
+.booking > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.language > div > p {
+    position: relative;
+    top: 7px;
+}
+
+.toggle-container {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle-checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: 0.4s;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+input:checked + .toggle-slider {
+    background-color: #000000;
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(26px);
 }
