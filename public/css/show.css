@@ -34,6 +34,7 @@
 .card-body>p{
     margin-bottom: 0.6rem;
 }
+/* btns ----edit or delete---- */
 .btns{
     display: block !important;
     height: 3rem !important;
@@ -66,8 +67,7 @@
 .review-del{
     position: absolute;
     right: 20px;
-    top: 8px;
-    
+    top: 8px;    
 }
 .card-title , .card-text{
     display: inline !important;
@@ -78,4 +78,7 @@
 }
 .review-comment{
     max-width: 80vw;
+}
+h3{
+    font-weight: 700;
 }

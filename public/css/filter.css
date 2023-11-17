@@ -72,13 +72,22 @@
     justify-self: flex-end;
     min-width: 280px;
 }
-
+.tax-sticky-sticky{
+    position: relative;
+    top: -2px;
+}
 .tax-switch:checked {
-    height: 40px;
+    height: 23px;
     background-color: black;
 }
 .form-check-input{
-    width: 2rem ;
+    height: 23px;
+    width: 2.3rem !important;
+    margin-left: 5px !important;
+}
+.form-switch .form-check-input{
+    transition: background-position .25s ease-in-out;
+
 }
 .tax-sticky {
     display: none;

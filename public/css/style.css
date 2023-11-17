@@ -66,43 +66,6 @@ body::-webkit-scrollbar {
     }
 }
 
-/* footer -------------------------------------------------------------------------------------*/
-.f-info-links a {
-    text-decoration: none;
-    color: black;
-}
-
-.f-info-links a:hover {
-    text-decoration: underline;
-}
-
-.f-info-links,
-.f-info-socials,
-.f-info-brand {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.f-info-socials i {
-    font-size: 1.2rem;
-    margin-right: 1rem;
-
-}
-
-.f-info {
-    text-align: center;
-    display: flex;
-    height: 8rem;
-    width: 100vw;
-    background-color: #ebebeb;
-    margin-top: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: space-evenly;
-}
-
 /* card ------------------------------------------------------------------------------------- */
 .card {
     border: .5px solid grey;
@@ -119,7 +82,7 @@ body::-webkit-scrollbar {
 
 .card-img-top {
     width: 100% !important;
-    height: 20rem !important;
+    height: 20.5rem !important;
     object-fit: cover !important;
     opacity: .9;
     transition: .5s ease-out 0s;
@@ -189,7 +152,7 @@ body::-webkit-scrollbar {
 }
 
 .card-img-top:hover {
-    transform: scale(1.125) !important;
+    transform: scale(1.08) !important;
     transition: .5s ease-in-out 0s;
     filter: contrast(1.25);
     opacity: 1;
