@@ -303,14 +303,20 @@ body::-webkit-scrollbar {
 .akash {
     z-index: 10;
     font-size: .8rem;
-    color: white !important;
+    background-color: rgba(16, 15, 15, 0.592);
+    padding: 2px 5px;
+    border-radius: 5px;
     text-decoration: none !important;
     font-weight: 800;
     padding: 0px 10px;
-    outline-style: ridge;
+    border: 2px solid rgba(0, 0, 0, 0.781);
     position: absolute;
     left: 20px;
     bottom: 10px;
+}
+.akash a{
+    color: white;
+    text-decoration: none;
 }
 
 /* indes.ejs style -------------------------------------------------------------------------------------*/
