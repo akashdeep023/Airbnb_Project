@@ -45,7 +45,7 @@
             <hr class="mt-2">
             <div class="col-8 offset-2">
                 <% if(currUser){ %>
-                <h4>Leave a Review</h4>
+                <p><b>Leave a Review &nbsp;<i class="fa-regular fa-pen-to-square"></i></b></p>
                 <form method="post" action="/listings/<%= listing._id %>/reviews" class="needs-validation" novalidate>
                     <div class=" mt-3">
                         <label class="form-lable" for="rating">Rating</label>
@@ -73,7 +73,7 @@
                 </form>
                 <% } %>
                 <% if(listing.reviews.length > 0 ){ %>
-                <p><b>All Reviews <i class="fa-regular fa-pen-to-square"></i></b></p>
+                <p><b>All Reviews</b></p>
                 <div class="row m-1 review-main">
                     <% for (const review of listing.reviews) { %>
                         <div class="card col-xs-4 col-sm-12 col-md-12 col-lg-5 review-lg">
@@ -99,13 +99,13 @@
             <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
             <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
             <div class="col-8 offset-2 mapImg">
-                <h4>Where you'll be <i class="fa-solid fa-location-crosshairs"></i></h4>
+                <p><b>Where you'll be &nbsp;<i class="fa-solid fa-location-crosshairs"></i></p></b>
                 <div id="map" style="position: relative;">
                     <div class="map-zoom-icon">
                         <div class="icon icon-plus" onclick="zoomin()"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                         <div class="icon icon-min" onclick="zoomout()"><i class="fa-solid fa-magnifying-glass-minus"></i></div>
                     </div>
-                    <div class="akash"><a href="https://github.com/akashdeep023">AD MAP</a></div>
+                    <div class="akash"><a href="https://github.com/akashdeep023">AD GitHub</a></div>
                 </div>
             </div>
         </div>
