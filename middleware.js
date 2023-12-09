@@ -69,3 +69,9 @@ module.exports.isReviewAuthor = async (req,res,next)=>{
         next(new ExpressError(400,"This Review Page is not valid...."))
     }
 }
+
+// Middleware to save the current URL in the session
+module.exports.currUrl = (req, res, next) => {
+    req.session.currUrl = req.originalUrl;
+    next();
+};
