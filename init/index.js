@@ -23,6 +23,8 @@ const initDB = async () => {
   initData.data = initData.data.map((obj) => ({
     ...obj,
     owner: "654bcb1b695caafbad331f59",
+    price: obj.price * 25,
+    category:[`${Math.floor(Math.random()*22)+1}`,`${Math.floor(Math.random()*22)+1}`],
   }));
   await Listing.insertMany(initData.data);
   console.log("data was initialized");
