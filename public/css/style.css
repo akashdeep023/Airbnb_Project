@@ -6,23 +6,16 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /* width: 100%; */
 }
 
 .container {
     flex: 1;
 }
-/* body{
-    width: calc(100vw - 10px);
-    position: relative;
-
-} */
 
 body::-webkit-scrollbar {
     background-color: rgb(255, 255, 255);
     width: 10px;
     border-radius: 50px;
-    position: absolute;
 }
 
 body::-webkit-scrollbar-button {
