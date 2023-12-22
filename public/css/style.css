@@ -12,9 +12,27 @@ body {
 .container {
     flex: 1;
 }
+/* body{
+    width: calc(100vw - 10px);
+    position: relative;
+
+} */
 
 body::-webkit-scrollbar {
+    background-color: rgb(255, 255, 255);
+    width: 10px;
+    border-radius: 50px;
+    position: absolute;
+}
+
+body::-webkit-scrollbar-button {
     display: none;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(183, 183, 183);
+    border-radius: 50px;
+    cursor: pointer;
 }
 
 /* navbar -------------------------------------------------------------------------------------*/
@@ -87,7 +105,8 @@ body::-webkit-scrollbar {
     opacity: .9;
     transition: .5s ease-out 0s;
 }
-.heart{
+
+.heart {
     width: 22px;
     position: absolute;
     z-index: 10;
@@ -97,37 +116,44 @@ body::-webkit-scrollbar {
     filter: drop-shadow(1px 1px 5px white);
     overflow: hidden;
 }
-.heart:hover{
+
+.heart:hover {
     opacity: 1;
 }
+
 @media (max-width: 1400px) and (min-width: 1199px) {
-    .heart{
+    .heart {
         right: 45px;
     }
 }
+
 @media (max-width: 767px) {
-    .heart{
+    .heart {
         right: 105px;
     }
 }
+
 @media (max-width: 586px) {
-    .heart{
+    .heart {
         position: relative;
         top: 10px;
         left: 10px;
         /* right: 19vw; */
     }
-    .card-img-top{
+
+    .card-img-top {
         height: 100%;
         position: relative;
         top: -25px;
     }
-    .heart-b{
+
+    .heart-b {
         left: -15px;
     }
 }
+
 @media (width: 767px) {
-    .heart{
+    .heart {
         position: relative;
         right: 100px;
     }
@@ -179,7 +205,8 @@ body::-webkit-scrollbar {
     background-color: #fe424d !important;
     border: none !important;
 }
-.form-label{
+
+.form-label {
     font-weight: 700;
 }
 
@@ -188,6 +215,7 @@ body::-webkit-scrollbar {
     background-color: #fe424d !important;
     border: none !important;
 }
+
 @media (max-width: 768px) {
     .edit-btn {
         width: 4rem !important;
@@ -226,36 +254,45 @@ body::-webkit-scrollbar {
 #map {
     position: relative;
 }
+
 .mapboxgl-ctrl-geocoder {
     right: 40px;
 }
-.mapboxgl-ctrl-geocoder--powered-by{
+
+.mapboxgl-ctrl-geocoder--powered-by {
     display: none !important;
 }
-.mapboxgl-ctrl-geocoder--input{
+
+.mapboxgl-ctrl-geocoder--input {
     border: none !important;
 }
-.mapboxgl-ctrl-geocoder{
+
+.mapboxgl-ctrl-geocoder {
     border: 1px solid rgb(137, 137, 137) !important;
 }
-.mapboxgl-ctrl-group{
+
+.mapboxgl-ctrl-group {
     position: absolute;
     z-index: 3;
     top: 4px;
     right: 2.8px;
 }
+
 @media (max-width: 639px) {
-    .mapboxgl-ctrl-geocoder{
+    .mapboxgl-ctrl-geocoder {
         height: 40px !important;
         width: 160px !important;
     }
-    .mapboxgl-ctrl-geocoder--input{
+
+    .mapboxgl-ctrl-geocoder--input {
         height: 40px !important;
     }
-    .mapboxgl-ctrl-geocoder--icon-search{
+
+    .mapboxgl-ctrl-geocoder--icon-search {
         top: 9px !important;
     }
 }
+
 .map-zoom-icon {
     border-radius: 6px;
     font-size: 2rem;
@@ -273,7 +310,7 @@ body::-webkit-scrollbar {
 }
 
 .icon {
-    box-shadow: 2px 2px 1px black , -2px -2px -1px black;
+    box-shadow: 2px 2px 1px black, -2px -2px -1px black;
     height: fit-content;
     width: fit-content;
     display: flex;
@@ -290,12 +327,13 @@ body::-webkit-scrollbar {
     opacity: 1;
 }
 
-.icon>i {
+.icon > i {
     font-size: 1.5rem;
     margin: none;
     cursor: pointer;
 }
-.icon-plus{
+
+.icon-plus {
     border-bottom: 1px solid black;
     padding-bottom: 18px;
 }
@@ -314,7 +352,8 @@ body::-webkit-scrollbar {
     left: 20px;
     bottom: 10px;
 }
-.akash a{
+
+.akash a {
     color: white;
     text-decoration: none;
 }
@@ -330,14 +369,15 @@ body::-webkit-scrollbar {
     .index-res-img {
         width: 320px;
     }
-    
-    .container{
+
+    .container {
         display: flex !important;
         flex-direction: column;
         margin-bottom: 15px;
         margin-left: 15px;
     }
 }
+
 @media (max-width: 355px) {
     .card-img {
         max-width: 290px;
@@ -348,10 +388,10 @@ body::-webkit-scrollbar {
         box-shadow: 0px 6px 5px rgb(0, 0, 0) !important;
         margin-bottom: 15px;
         margin-left: 15px;
-    
+
     }
-    .card-text{
+
+    .card-text {
         margin-left: 15px;
     }
 }
-
