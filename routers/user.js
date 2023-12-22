@@ -21,5 +21,9 @@ router.route("/login")
 
 router.get("/logout",userController.logoutUser)     //logout----------
 
+router.get("/", (req, res) => {                     //redirect home page---------
+    res.redirect("/listings")
+})
+
 module.exports = router;                            //export---app.js---------------
 
