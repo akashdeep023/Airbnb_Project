@@ -1,5 +1,5 @@
 .showfilter {
-    display: none; 
+    display: none;
     /* display: flex; */
     justify-content: center;
     padding: 0px 20px;
@@ -59,6 +59,7 @@ div.main::-webkit-scrollbar {
     height: 60px;
     max-width: 780px;
     background-color: #ffffff;
+    margin-left: -4.8px;
 }
 
 @media (min-width: 780px) {
