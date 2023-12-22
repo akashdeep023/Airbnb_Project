@@ -44,3 +44,10 @@ buttonSlide.forEach((button) => {
 		filtersBox.scrollBy({ left: scrollImg, behavior: "smooth" });
 	});
 });
+
+filtersBox.addEventListener("scroll", () => {
+		buttonSlide[0].style.display = filtersBox.scrollLeft <= 0 ? "none" : "flex"
+		buttonSlide[1].style.display = filtersBox.scrollLeft >= (filtersBox.scrollWidth-filtersBox.clientWidth-5) ? "none" : "flex"
+		console.log(filtersBox.scrollWidth)
+		console.log(filtersBox.scrollWidth-filtersBox.clientWidth)
+})
