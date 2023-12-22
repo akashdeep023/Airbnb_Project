@@ -26,11 +26,13 @@
         margin: 0px .95rem;
     }
 }
+
 @media (max-width:425px) {
     #filters > a {
         margin: 0px .65rem;
     }
 }
+
 #slideButton {
     cursor: pointer;
     position: sticky;
@@ -45,8 +47,19 @@
     font-size: 1.75rem;
     padding: 10px;
     z-index: 100;
+    transition: all .2s ease-out;
 }
-#slideButton > i{
+
+#slideButton:hover {
+    transform: scale(1.2);
+}
+
+#slideButton:active {
+    transform: scale(1);
+    background-color: black;
+}
+
+#slideButton > i {
     font-size: 1rem;
 }
 
