@@ -4,7 +4,6 @@
     width: 100%;
     padding: 3% 0% 0% 5%;
     margin-top: 30px;
-
 }
 
 .ftr-nav {
@@ -151,8 +150,10 @@
     width: 120px;
 }
 
-.social-icon {
-    font-size: 1.5rem;
+.social-icon img {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin: .25rem;
 }
 
 .social-icon a {
@@ -198,26 +199,39 @@
     padding: 10px 0px 0px 0px;
     margin-right: 5%;
 }
-.ftr-akash:hover{
-    color: darkblue;
+
+.ftr-akash p:hover {
+    background: -webkit-linear-gradient(blue, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
 }
-.ftr-akash p{
+
+.ftr-akash p {
+    background: -webkit-linear-gradient(#ff0000, black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     animation: sheck 5s infinite linear;
 }
+
 @keyframes sheck {
-    0%{
+    0% {
         transform: scale(1);
     }
-    33%{
+
+    33% {
         transform: scale(1.2);
     }
-    50%{
+
+    50% {
         transform: scale(1);
     }
-    66%{
+
+    66% {
         transform: scale(1.2);
     }
-    100%{
+
+    100% {
         transform: scale(1);
     }
 }
