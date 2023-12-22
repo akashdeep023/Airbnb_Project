@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="/css/filter.css">
     <div class="filters-main">
         <div id="filters">
+            <div class="left_img_button" id="slideButton">
+                <i class="fa-solid fa-angle-left"></i>
+            </div>
             <a href="/listings/">
                 <div class="filter ALL ms-1 ps-2 pe-2">
                     <div><img src="/Icon/0.png" alt="icon" style="width: 25px; height: 25px;"></div>
@@ -152,7 +155,10 @@
                     <p>Earth homes</p>
                 </div>
             </a>
-        </div>       
+            <div class="right_img_button" id="slideButton">
+                <i class="fa-solid fa-angle-right"></i>
+            </div>
+        </div>
         <div class="tax-toggle tax-filter-icon filterIcon me-2 ms-2 " onclick="filterClick()">
             <div class="form-check form-switch form-check-reverse pe-1" style="cursor: pointer;">
                 <i class="fa-solid fa-sliders" id="filter-icon"></i>
@@ -188,7 +194,7 @@
                             <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" />
                         </div>
                         <!-- set date  -->
-                        <% 
+                        <%
                         let no = Math.floor(Math.random() * 28 + 1);
                         let date = (new Date('2023-11-01')).getDate() + no;         //today ----
                         let dateA = (new Date('2023-11-01')).getDate() + no + Math.floor(Math.random() * 4 + 2);    //today + day ----
@@ -205,9 +211,9 @@
                         </div>
                     </div>
                 </div>
-            </a>            
+            </a>
         <% } %>
-    </div> 
+    </div>
 <script defer src="/js/filter.js"></script>
 <script>
     // let heartR = document.querySelectorAll(".heart-r")
@@ -215,12 +221,12 @@
     // for (const heartb of heartB) {
     //     heartb.addEventListener("click", ()=>{
     //         heartb.style.zIndex = "4"
-    //     })     
+    //     })
     // }
     // for (const heartr of heartR) {
     //     heartr.addEventListener("click", ()=>{
     //         heartr.style.zIndex = "3"
-    //     })     
+    //     })
     // }
 
     // let heart1 = document.querySelectorAll(".heart")
@@ -233,9 +239,9 @@
     //     //     for (const h of heart1) {
     //     //         // console.log(h)
     //     //         h[0].style.zIndex = "4"
-    //     //         h[1].style.zIndex = "3"                
+    //     //         h[1].style.zIndex = "3"
     //     //     }
-    //     })     
+    //     })
     // }
 
 </script>
