@@ -95,9 +95,11 @@ module.exports.filter = async (req, res, next) => {
 	let allListing = await Listing.find({ category: { $all: [id] } });
 	console.log(allListing);
 	if (allListing.length != 0) {
+		// req.flash("success",`Listings Find by ${id}`)
+		res.locals.success=`Listings Find by ${id}`
 		res.render("listings/index.ejs", { allListing });
 	} else {
-		req.flash("error", "Listings is not here");
+		req.flash("error", "Listings is not here !!!");
 		res.redirect("/listings");
 	}
 };
@@ -108,7 +110,7 @@ module.exports.filterbtn = (req, res, next) => {
 
 module.exports.search = async (req, res) => {
 	console.log(req.query.q);
-	let input = req.query.q.trim();
+	let input = req.query.q.trim().replace(/\s+/g, " "); // remove start and end space and middle space remove and middle add one space------
 	console.log(input);
 	if (input == "" || input == " ") {
 		//search value empty
@@ -129,22 +131,26 @@ module.exports.search = async (req, res) => {
 		flag = data[index] == " ";
 	}
 	console.log(element);
-	element = element.replace(/\s+/g, " "); // middle space remove and add one space------
-	console.log(element);
 
 	// let allListing = await Listing.find({title: element}).sort({_id: -1})
 	let allListing = await Listing.find({
 		title: { $regex: element, $options: "i" },
 	});
 	if (allListing.length != 0) {
-		req.flash("success", "Listings searched by Title");
+		// req.flash("success", "Listings searched by Title");
+		res.locals.success = "Listings searched by Title";
+		res.render("listings/index.ejs", { allListing });
+		return;
 	}
 	if (allListing.length == 0) {
 		allListing = await Listing.find({
 			category: { $regex: element, $options: "i" },
 		}).sort({ _id: -1 });
 		if (allListing.length != 0) {
-			req.flash("success", "Listings searched by Category");
+			// req.flash("success", "Listings searched by Category");
+			res.locals.success = "Listings searched by Category";
+			res.render("listings/index.ejs", { allListing });
+			return;
 		}
 	}
 	if (allListing.length == 0) {
@@ -152,7 +158,10 @@ module.exports.search = async (req, res) => {
 			country: { $regex: element, $options: "i" },
 		}).sort({ _id: -1 });
 		if (allListing.length != 0) {
-			req.flash("success", "Listings searched by Country");
+			// req.flash("success", "Listings searched by Country");
+			res.locals.success = "Listings searched by Country";
+			res.render("listings/index.ejs", { allListing });
+			return;
 		}
 	}
 	if (allListing.length == 0) {
@@ -160,7 +169,10 @@ module.exports.search = async (req, res) => {
 			location: { $regex: element, $options: "i" },
 		}).sort({ _id: -1 });
 		if (allListing.length != 0) {
-			req.flash("success", "Listings searched by Location");
+			// req.flash("success", "Listings searched by Location");
+			res.locals.success = "Listings searched by Location";
+			res.render("listings/index.ejs", { allListing });
+			return;
 		}
 	}
 	const intValue = parseInt(element, 10); // 10 for decimal return - int ya NaN
@@ -171,15 +183,18 @@ module.exports.search = async (req, res) => {
 			price: 1,
 		});
 		if (allListing.length != 0) {
-			req.flash(
-				"success",
-				`Listings searched for less than Rs ${element}`
-			);
+			// req.flash(
+			// 	"success",
+			// 	`Listings searched for less than Rs ${element}`
+			// );
+			res.locals.success = `Listings searched for less than Rs ${element}`;
+			res.render("listings/index.ejs", { allListing });
+			return;
 		}
 	}
 	if (allListing.length == 0) {
 		req.flash("error", "Listings is not here !!!");
 		res.redirect("/listings");
 	}
-	res.render("listings/index.ejs", { allListing });
+	// res.render("listings/index.ejs", { allListing });
 };
