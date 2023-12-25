@@ -7,16 +7,19 @@ const {validateListing , isLoggedIn , isOwner} = require("../middleware.js")
 
 const listingController = require("../controllers/listings.js")                             //all backend code--------
 
-const multer  = require('multer')            //install multer package in npm || multipart/form-data type receive and paras 
+const multer  = require('multer')            //install multer package in npm || multipart/form-data type receive and paras
 // const upload = multer({ dest: 'uploads/' })  //uploads folder me save karega
 const {storage} = require("../cloudConfig.js")
 const upload = multer({storage});
 
-//Filter-----------------
-router.get("/filter/:id",wrapAsync(listingController.filter));
-router.get("/filterbtn",listingController.filterbtn);
 
-// Router.route-----------------------
+// Router.route----------------------------------
+router.get("/filter/:id", wrapAsync(listingController.filter));                              //Filter Route-----------------
+
+router.get("/filterbtn",listingController.filterbtn);                                       //FilterButton Route-----------------
+
+router.get("/search", wrapAsync(listingController.search))                                  //SEARCH Route-------------
+
 router.route("/")
     .get(wrapAsync(listingController.index))                                                //Index Route----------
     .post(isLoggedIn,upload.single('listing[image]'),validateListing,wrapAsync(listingController.createListing));           //CREATE (New & Create Route)-----------
