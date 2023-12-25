@@ -1,52 +1,43 @@
 <style>
-/* flush animation -------------------------------------------------------------------------------------  */
-    .anima{
+    /* flush animation -------------------------------------------------------------------------------------  */
+    .anima {
         position: absolute;
-        top: calc(5.5rem );
+        top: calc(5.5rem);
         animation: slide-in 3s ease-in forwards;
-        z-index: 20;
+        z-index: 110;
     }
+
     @keyframes slide-in {
         0% {
             top: calc(5.5rem - 90px);
         }
-        25%{
+
+        25% {
             top: 5.5rem;
         }
-        75%{
+
+        75% {
             top: 5.5rem;
         }
-        100%{
+
+        100% {
             top: calc(5.5rem - 190px);
         }
     }
 </style>
 <!-- add on boilerplate -->
 <% if(success && success.length){ %>
-<div class="alert alert-success alert-dismissible fade show col-8 offset-2 anima" role="alert">
-    <b><%= success %></b>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
+    <div class="alert alert-success fade show col-8 offset-2 anima text-center" role="alert">
+        <b>
+            <%= success %>
+        </b>
+    </div>
 <% } %>
 
 <% if(error && error.length){ %>
-<div class="alert alert-danger alert-dismissible fade show col-8 offset-2 anima" role="alert">
-    <b><%= error %></b>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-<% } %>    
-
-<!-- 
-<script>
-    // Add flash message
-    const flashMessage = document.querySelector('.alert');
-    if (flashMessage) {
-        // Show the message
-        flashMessage.style.display = 'block';
-
-        // Set a timeout to hide the message after 5 seconds (5000 milliseconds)
-        setTimeout(() => {
-            flashMessage.style.display = 'none';
-        }, 3000);
-    }
-</script> -->
+    <div class="alert alert-danger fade show col-8 offset-2 anima text-center" role="alert">
+        <b>
+            <%= error %>
+        </b>
+    </div>
+<% } %>
