@@ -4,7 +4,7 @@
     @media (max-width:768px) {
         .alert{
             left: 17%;
-        }        
+        }
     }
 </style>
 <script>
@@ -18,15 +18,15 @@
                 <h3 class="ms-3"><%= listing.title %> </h3>
             </div>
             <div class="card col-8 offset-2 show-card listing-card">
-                <div class="show-card-img">                
+                <div class="show-card-img">
                     <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing_image">
                 </div>
                 <div class="card-body ms-1">
-                    <p class="card-text"> Owned by: <b><i><%= listing.owner.username %></i></b></p>
-                    <p class="card-text"> <%= listing.description %> </p>
-                    <p class="card-text"> &#8377; <%= listing.price.toLocaleString("en-In") %> / night </p>
-                    <p class="card-text"> <%= listing.location %>, <%= listing.country %>  <i class="fa-solid fa-location-dot" style="margin-right: 1rem; font-size: 1.25rem;"></i></p>
-                    <!-- <p class="card-text"> <%# listing.country %> </p> -->
+                    <p class="card-text"><b>Owned by :</b> <b><i><%= listing.owner.username %></i></b></p>
+                    <p class="card-text"><b>Description :</b> <%= listing.description %> </p>
+                    <p class="card-text"><b>Price :</b> &#8377; <%= listing.price.toLocaleString("en-In") %> / night </p>
+                    <p class="card-text"><b>Country :</b> <%= listing.location %>, <%= listing.country %>  <i class="fa-solid fa-location-dot" style="margin-right: 1rem; font-size: 1.25rem;"></i></p>
+                    <p class="card-text"><b>Category :</b> <%= listing.category.slice(",").join(", ") %> </p>
                 </div>
             </div>
             <!-- Authorization  -->
@@ -36,10 +36,10 @@
                     <a type="button" href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-1 offset-3 edit-btn">Edit</a>
                     <form method="post" action="/listings/<%= listing._id %>?_method=DELETE">
                         <button class="btn btn-dark offset-4 del-btn">Delete</button>
-                    </form> 
+                    </form>
                 </div>
-            </div>           
-        
+            </div>
+
             <% } %>
             <!-- --------------- review ------------- -->
             <hr class="mt-2">
@@ -49,7 +49,7 @@
                 <form method="post" action="/listings/<%= listing._id %>/reviews" class="needs-validation" novalidate>
                     <div class=" mt-3">
                         <label class="form-lable" for="rating">Rating</label>
-                        <!-- <input class="form-range" type="range" min="1" max="5" name="review[rating]" id="rating"> -->                
+                        <!-- <input class="form-range" type="range" min="1" max="5" name="review[rating]" id="rating"> -->
                     <fieldset class="starability-slot">
                         <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked aria-label="No rating." />
                         <input type="radio" id="first-rate1" name="review[rating]" value="1" />
@@ -91,7 +91,7 @@
                             </form>
                             <% } %>
                         </div>
-                    <% } %>                
+                    <% } %>
                 </div>
                 <% } %>
             </div>
