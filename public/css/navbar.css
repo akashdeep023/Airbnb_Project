@@ -1,0 +1,54 @@
+/* navbar -------------------------------------------------------------------------------------*/
+.navbar {
+    height: 5.5rem;
+    background-color: white;
+}
+
+.container-fluid {
+    margin: 0px 5%;
+
+}
+
+.navbar img.imgAirbnb {
+    margin-top: 7px;
+    height: 2rem;
+    width: 6.2rem;
+    filter: contrast(2);
+}
+
+.navbar img.imgAirbnb-s {
+    height: 2.3rem;
+    width: 2.8rem;
+    filter: contrast(2);
+    margin-top: 4px;
+    display: none;
+}
+
+.fa-compass {
+    color: #fe434d;
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: black !important;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.navbar-nav {
+    font-weight: 800;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 707px) {
+    .navbar img.imgAirbnb-s {
+        /* display: block !important; */
+        display: none !important;
+    }
+}
+
+#mySearchInput , #search{
+    text-align: center;
+    border-radius: 50px;
+}
+
