@@ -11,8 +11,8 @@
 
 ## How to Use
     - 1st : Click CODE button and download zip file
-    - 2nd : Right click on zip folder then click Extract all 
-    - 3rd : Open Major project folder in vscode 
+    - 2nd : Right click on zip folder then click Extract all
+    - 3rd : Open Major project folder in vscode
     - 4th : Install all package - Type command in terminal -> npm i
     - 5th : Data initialize - Type command in terminal -> node init/index.js
     - 6th : Run server - Type command in terminal -> node app.js
@@ -40,7 +40,10 @@
    9. cloudinary and etc..
 ## Author :
    Akash Deep
+   <br>
    Email: ad3500476@gmail.com
+   <br>
+   LinkedIn : https://www.linkedin.com/in/akashdeep023/
 
 ## Website Link :
 - https://airbnb-project-jack.onrender.com/listings
