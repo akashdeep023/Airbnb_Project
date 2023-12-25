@@ -7,19 +7,21 @@
                 enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
-                    <input type="text" value="<%= listing.title %>" name="listing[title]" class="form-control border border-black border-opacity-50" required>
+                    <input type="text" value="<%= listing.title %>" name="listing[title]"
+                        class="form-control border border-black border-opacity-50" required>
                     <div class="valid-feedback">Title looks good!</div>
                     <div class="invalid-feedback">Title should be valid</div>
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <textarea cols="20" rows="3" name="listing[description]" class="form-control border border-black border-opacity-50"
+                    <textarea cols="20" rows="3" name="listing[description]"
+                        class="form-control border border-black border-opacity-50"
                         required><%= listing.description %></textarea>
                     <div class="invalid-feedback">Please enter a short description.</div>
                 </div>
                 <!-- <div class="mb-3">
                     <label for="image" class="form-label">Image Link</label>
-                    <input type="text" value= "<%#= listing.image %>" name="listing[image]" class="form-control" required> 
+                    <input type="text" value= "<%#= listing.image %>" name="listing[image]" class="form-control" required>
                     <div class="invalid-feedback">Please enter a image link.</div>
                 </div> -->
                 <div class="mb-3">
@@ -29,41 +31,61 @@
                 <div class="row mb-3">
                     <div class="col-10">
                         <label for="image" class="form-label">Upload New Image</label>
-                        <input type="file" name="listing[image]" class="form-control border border-black border-opacity-50 imageInput" id="verify-img">
-                        <p id="errorContainer"></p>                                     
+                        <input type="file" name="listing[image]"
+                            class="form-control border border-black border-opacity-50 imageInput" id="verify-img">
+                        <p id="errorContainer"></p>
                     </div>
                     <div class="col-2">
-                        <label class="form-control border border-white" style="margin-left: -15px;font-weight: 700;" for="verify">Verify</label>     
-                        <input type="checkbox" checked id="verify" class="form-btn btn ms-2 border border-black border-opacity-50"  required style="height: 25px; width:25px;">  
-                        <div class="invalid-feedback">Varify</div> 
+                        <label class="form-control border border-white" style="margin-left: -15px;font-weight: 700;"
+                            for="verify">Verify</label>
+                        <input type="checkbox" checked id="verify"
+                            class="form-btn btn ms-2 border border-black border-opacity-50" required
+                            style="height: 25px; width:25px;">
+                        <div class="invalid-feedback">Varify</div>
+                    </div>
+                </div>
+                <div class="m-b3">
+                    <label for="category-added" class="form-label">Previous Category</label>
+                    <div class="category-added" id="category-added">
+                        <p><b>Selected :&nbsp;&nbsp;</b></p>
+                        <% for(categ of listing.category){ %>
+                            <p>
+                                <%= categ %>&nbsp;&nbsp;
+                            </p>
+                            <% } %>
                     </div>
                 </div>
                 <div class="m-b3">
                     <label for="category" class="form-label">Choose Category</label>
-                    <select id="category" name="listing[category]" class="form-select border border-black border-opacity-50 mb-2"  multiple style="font-size: .95rem;">
-                        <option disabled>(Single:&nbsp;  click) & (Multiple:&nbsp; ctrl+click)</option>
-                        <option value="1">Beachfront</option>
-                        <option value="2">Cabins</option>
-                        <option value="3">OMG</option>
-                        <option value="4">Lake</option>
-                        <option value="5">Design</option>
-                        <option value="6">Amazing pools</option>
-                        <option value="7">Farms</option>
-                        <option value="8">Amazing views</option>
-                        <option value="9">Rooms</option>
-                        <option value="10">Lakefront</option>
-                        <option value="11">Tiny homes</option>
-                        <option value="12">Countryside</option>
-                        <option value="13">Treehouse</option>
-                        <option value="14">Trending</option>
-                        <option value="15">Tropical</option>                       
-                        <option value="16">National parks</option>                         
-                        <option value="17">Casties</option>                         
-                        <option value="18">Camping</option>                         
-                        <option value="19">Top of the world</option>                         
-                        <option value="20">Luxe</option>                         
-                        <option value="21">Iconic cities</option>                         
-                        <option value="22">Earth homes</option>                           
+                    <div class="category-choose">
+                        <p><b>Single choose :</b> Click &nbsp;&nbsp;</p>
+                        <p><b>Multiple choose :</b> Ctrl + Click</p>
+                    </div>
+                    <select id="category" name="listing[category]"
+                        class="form-select border border-black border-opacity-50 mb-2" multiple
+                        style="font-size: .95rem;">
+                        <option value="Beachfront">Beachfront</option>
+                        <option value="Cabins">Cabins</option>
+                        <option value="Omg">OMG</option>
+                        <option value="Lake">Lake</option>
+                        <option value="Design">Design</option>
+                        <option value="Amazing Pools">Amazing pools</option>
+                        <option value="Farms">Farms</option>
+                        <option value="Amazing Views">Amazing views</option>
+                        <option value="Rooms">Rooms</option>
+                        <option value="Lakefront">Lakefront</option>
+                        <option value="Tiny Homes">Tiny homes</option>
+                        <option value="Countryside">Countryside</option>
+                        <option value="Treehouse">Treehouse</option>
+                        <option value="Trending">Trending</option>
+                        <option value="Tropical">Tropical</option>
+                        <option value="National Parks">National parks</option>
+                        <option value="Casties">Casties</option>
+                        <option value="Camping">Camping</option>
+                        <option value="Top Of The World">Top of the world</option>
+                        <option value="Luxe">Luxe</option>
+                        <option value="Iconic Cities">Iconic cities</option>
+                        <option value="Earth Homes">Earth homes</option>
                     </select>
                 </div>
                 <div class="row">
@@ -71,31 +93,32 @@
                         <label for="price" class="form-label">Price</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                              <span class="input-group-text">₹</span>
+                                <span class="input-group-text">₹</span>
                             </div>
-                            <input type="number" value="<%= listing.price %>" name="listing[price]" class="form-control border border-black border-opacity-50" required>
+                            <input type="number" value="<%= listing.price %>" name="listing[price]"
+                                class="form-control border border-black border-opacity-50" required>
                             <div class="input-group-append">
-                              <span class="input-group-text">.00</span>
+                                <span class="input-group-text">.00</span>
                             </div>
                         </div>
                         <div class="invalid-feedback">Price should be valid</div>
                     </div>
                     <div class="mb-3 col-md-8">
                         <label for="country" class="form-label">Country</label>
-                        <input type="text" value="<%= listing.country %>" name="listing[country]" class="form-control border border-black border-opacity-50"
-                            required>
+                        <input type="text" value="<%= listing.country %>" name="listing[country]"
+                            class="form-control border border-black border-opacity-50" required>
                         <div class="invalid-feedback">Country name should be valid</div>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="location" class="form-label">Location</label>
-                    <input type="text" value="<%= listing.location %>" name="listing[location]" class="form-control border border-black border-opacity-50"
-                        required>
+                    <input type="text" value="<%= listing.location %>" name="listing[location]"
+                        class="form-control border border-black border-opacity-50" required>
                     <div class="invalid-feedback">Location should be valid</div>
                 </div>
                 <button class="btn btn-dark edit-btn mb-3 uploadButton" onclick="sizeLimit()">Edit</button>
             </form>
         </div>
     </div>
-    
+
     <script src="/js/editImg-size.js"></script>
