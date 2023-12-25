@@ -12,70 +12,25 @@ body {
     flex: 1;
 }
 
-body::-webkit-scrollbar {
+body::-webkit-scrollbar,
+#category::-webkit-scrollbar {
     background-color: rgb(255, 255, 255);
-    width: 10px;
+    width: 8px;
     border-radius: 50px;
 }
 
-body::-webkit-scrollbar-button {
+body::-webkit-scrollbar-button,
+#category::-webkit-scrollbar-button {
     display: none;
 }
 
-body::-webkit-scrollbar-thumb {
-    background-color: rgb(183, 183, 183);
+body::-webkit-scrollbar-thumb,
+#category::-webkit-scrollbar-thumb {
+    background-color: rgb(146, 146, 146);
     border-radius: 50px;
     cursor: pointer;
 }
 
-/* navbar -------------------------------------------------------------------------------------*/
-.navbar {
-    height: 5.5rem;
-    background-color: white;
-}
-
-.container-fluid {
-    margin: 0px 5%;
-
-}
-
-.navbar img.imgAirbnb {
-    margin-top: 7px;
-    height: 2rem;
-    width: 6.2rem;
-    filter: contrast(2);
-}
-
-.navbar img.imgAirbnb-s {
-    height: 2.3rem;
-    width: 2.8rem;
-    filter: contrast(2);
-    margin-top: 4px;
-    display: none;
-}
-
-.fa-compass {
-    color: #fe434d;
-    font-size: 2rem;
-}
-
-.nav-link {
-    color: black !important;
-    font-size: 1.5rem;
-}
-
-.navbar-nav {
-    background-color: rgba(255, 255, 255, 0.928);
-    font-weight: 800;
-    font-size: 0.9rem;
-}
-
-@media (max-width: 707px) {
-    .navbar img.imgAirbnb-s {
-        /* display: block !important; */
-        display: none !important;
-    }
-}
 
 /* card ------------------------------------------------------------------------------------- */
 .card {
@@ -203,6 +158,53 @@ body::-webkit-scrollbar-thumb {
     font-weight: 700;
 }
 
+.category-choose,
+.category-added {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.category-choose p,
+.category-added {
+    font-size: .90rem;
+    color: grey;
+    line-height: 5px;
+}
+
+.category-choose p b,
+.category-added p b {
+    font-weight: 600;
+}
+
+#category {
+    padding: 8px;
+}
+
+#category option {
+    border-radius: 50px;
+    border: .5px solid rgba(0, 0, 0, 0.486);
+    padding: 2px 10px 5px 10px;
+    background-color: darkgray;
+    margin: 0px;
+    margin-bottom: 3px;
+}
+
+.category-added {
+    border: .5px solid rgba(0, 0, 0, 0.448);
+    border-radius: 50px;
+    color: black;
+    line-height: 6px;
+    padding: 10px 8px 0px 8px;
+}
+
+.category-added p {
+    margin-right: 5px;
+    margin-top: 3px;
+    margin-left: 5px;
+
+}
+
 /* edit.ejs style -------------------------------------------------------------------------------------*/
 .edit-btn {
     background-color: #fe424d !important;
@@ -212,6 +214,10 @@ body::-webkit-scrollbar-thumb {
 @media (max-width: 768px) {
     .edit-btn {
         width: 4rem !important;
+    }
+
+    .category-choose {
+        display: none;
     }
 
     #map {
