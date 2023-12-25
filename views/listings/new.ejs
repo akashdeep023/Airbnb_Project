@@ -6,59 +6,62 @@
             <form method="post" action="/listings" class="needs-validation" novalidate enctype="multipart/form-data" >  <!-- multipart/form-data type send  -->
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
-                    <input type="text" placeholder="Add A Catchy Title" name="listing[title]" class="form-control border border-black border-opacity-50" required> 
+                    <input type="text" placeholder="Add A Catchy Title" name="listing[title]" class="form-control border border-black border-opacity-50" required>
                     <div class="valid-feedback">Title looks good!</div>
                     <div class="invalid-feedback">Title should be valid</div>
                 </div>
-                <div class="mb-3">   
-                    <label for="description" class="form-label">Description</label>         
-                    <textarea cols="20" rows="3" placeholder="Enter Description" name="listing[description]" class="form-control border border-black border-opacity-50" required></textarea> 
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea cols="20" rows="3" placeholder="Enter Description" name="listing[description]" class="form-control border border-black border-opacity-50" required></textarea>
                     <div class="invalid-feedback">Please enter a short description.</div>
                 </div>
                 <!-- <div class="mb-3">
                     <label for="image" class="form-label">Image Link</label>
-                    <input type="text" placeholder="Enter Image URL/Link" name="listing[image]" class="form-control"> 
+                    <input type="text" placeholder="Enter Image URL/Link" name="listing[image]" class="form-control">
                 </div> -->
                 <div class=" row mb-3">
-                    <div class="col-10">                        
+                    <div class="col-10">
                         <label for="image" class="form-label">Upload Image</label>
-                        <input type="file" name="listing[image]" class="form-control border border-black border-opacity-50" id="verify-img" required> 
-                        <p id="errorContainer"></p>                                     
-                    </div>                    
+                        <input type="file" name="listing[image]" class="form-control border border-black border-opacity-50" id="verify-img" required>
+                        <p id="errorContainer"></p>
+                    </div>
                     <div class="col-2">
-                        <label class="form-control border border-white" style="margin-left: -15px;font-weight: 700;" for="verify">Verify</label>     
-                        <input type="checkbox" id="verify" class="form-btn btn ms-2 border border-black border-opacity-50"  required style="height: 25px; width:25px;">    
-                        <div class="invalid-feedback">Varify</div> 
+                        <label class="form-control border border-white" style="margin-left: -15px;font-weight: 700;" for="verify">Verify</label>
+                        <input type="checkbox" id="verify" class="form-btn btn ms-2 border border-black border-opacity-50"  required style="height: 25px; width:25px;">
+                        <div class="invalid-feedback">Varify</div>
                     </div>
                 </div>
                 <div class="m-b3">
                     <label for="category" class="form-label">Choose Category</label>
+                    <div class="category-choose">
+                        <p><b>Single choose :</b> Click &nbsp;&nbsp;</p>
+                        <p><b>Multiple choose :</b> Ctrl + Click</p>
+                    </div>
                     <select id="category" name="listing[category]" class="form-select border border-black border-opacity-50 mb-2"  multiple required style="font-size: .95rem;">
-                        <option disabled>(Single:&nbsp;  click) & (Multiple:&nbsp; ctrl+click)</option>
-                        <option value="1">Beachfront</option>
-                        <option value="2">Cabins</option>
-                        <option value="3">OMG</option>
-                        <option value="4">Lake</option>
-                        <option value="5">Design</option>
-                        <option value="6">Amazing pools</option>
-                        <option value="7">Farms</option>
-                        <option value="8">Amazing views</option>
-                        <option value="9">Rooms</option>
-                        <option value="10">Lakefront</option>
-                        <option value="11">Tiny homes</option>
-                        <option value="12">Countryside</option>
-                        <option value="13">Treehouse</option>
-                        <option value="14">Trending</option>
-                        <option value="15">Tropical</option>                         
-                        <option value="16">National parks</option>                         
-                        <option value="17">Casties</option>                         
-                        <option value="18">Camping</option>                         
-                        <option value="19">Top of the world</option>                         
-                        <option value="20">Luxe</option>                         
-                        <option value="21">Iconic cities</option>                         
-                        <option value="22">Earth homes</option>                         
+                        <option value="Beachfront">Beachfront</option>
+                        <option value="Cabins">Cabins</option>
+                        <option value="Omg">OMG</option>
+                        <option value="Lake">Lake</option>
+                        <option value="Design">Design</option>
+                        <option value="Amazing Pools">Amazing pools</option>
+                        <option value="Farms">Farms</option>
+                        <option value="Amazing Views">Amazing views</option>
+                        <option value="Rooms">Rooms</option>
+                        <option value="Lakefront">Lakefront</option>
+                        <option value="Tiny Homes">Tiny homes</option>
+                        <option value="Countryside">Countryside</option>
+                        <option value="Treehouse">Treehouse</option>
+                        <option value="Trending">Trending</option>
+                        <option value="Tropical">Tropical</option>
+                        <option value="National Parks">National parks</option>
+                        <option value="Casties">Casties</option>
+                        <option value="Camping">Camping</option>
+                        <option value="Top Of The World">Top of the world</option>
+                        <option value="Luxe">Luxe</option>
+                        <option value="Iconic Cities">Iconic cities</option>
+                        <option value="Earth Homes">Earth homes</option>
                     </select>
-                    <div class="invalid-feedback">Choose category name</div> 
+                    <div class="invalid-feedback">Choose category name</div>
                 </div>
                 <div class="row">
                     <div class="mb-3 col-md-4">
@@ -72,20 +75,20 @@
                               <span class="input-group-text">.00</span>
                             </div>
                         </div>
-                        <div class="invalid-feedback">Price should be valid</div> 
+                        <div class="invalid-feedback">Price should be valid</div>
                     </div>
                     <div class="mb-3 col-md-8">
                         <label for="country" class="form-label">Country</label>
-                        <input type="text" placeholder="Enter Country" name="listing[country]" class="form-control border border-black border-opacity-50" required> 
-                        <div class="invalid-feedback">Country name should be valid</div> 
+                        <input type="text" placeholder="Enter Country" name="listing[country]" class="form-control border border-black border-opacity-50" required>
+                        <div class="invalid-feedback">Country name should be valid</div>
                     </div>
-                </div>                
-                <div class="mb-3">            
+                </div>
+                <div class="mb-3">
                     <label for="location" class="form-label">Location</label>
-                    <input type="text" placeholder="Enter Location" name="listing[location]" class="form-control border border-black border-opacity-50" required> 
-                    <div class="invalid-feedback">Location should be valid</div> 
-                </div>                                
-                <button class="btn btn-dark add-btn mb-3">Add</button>                
+                    <input type="text" placeholder="Enter Location" name="listing[location]" class="form-control border border-black border-opacity-50" required>
+                    <div class="invalid-feedback">Location should be valid</div>
+                </div>
+                <button class="btn btn-dark add-btn mb-3">Add</button>
             </form>
         </div>
     </div>
