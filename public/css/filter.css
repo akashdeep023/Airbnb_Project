@@ -50,12 +50,8 @@
     transition: all .2s ease-out;
 }
 
-#slideButton:hover {
-    transform: scale(1.2);
-}
-
 #slideButton:active {
-    transform: scale(1);
+    transform: scale(1.2);
     background-color: black;
 }
 
@@ -97,6 +93,8 @@
 
 .tax-info {
     display: none;
+}
+.tax-underline{
     text-decoration: underline;
 }
 
