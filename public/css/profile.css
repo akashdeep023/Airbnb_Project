@@ -1,0 +1,170 @@
+.main-profiles{
+    margin-bottom: 3rem;
+}
+.main-profile-detail{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 3rem;
+}
+.profile-user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-user h4 {
+    color: grey;
+}
+
+.manage {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.manage-hide {
+    display: none;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 2rem;
+}
+
+.manage form button,.list-btn,.deleteAll {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    margin-bottom: 10px;
+    text-align: center;
+    height: 2.6rem;
+    width: 8rem;
+    border: 1px solid grey;
+    border-radius: 20px;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    box-shadow: inset 0px 4px 6px black;
+}
+.manage .update:hover, .lists-btn .list-show:hover {
+    background-color: green;
+}
+.manage .delete:hover,.list-delete:hover {
+    background-color: red;
+}
+.manage form button:active,.list-btn:active {
+    box-shadow: inset 0px 6px 7px black;
+}
+.lists-btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 10px;
+}
+.list-btn{
+    height: 2rem;
+    width: 6rem;
+}
+.lists-btn .list-show a{
+    text-decoration: none;
+    color: black;
+}
+.profile-box{
+    min-height: 20rem;
+}
+.listing-count{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.listing-count form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.create-list:hover{
+    background-color: green;
+}
+.delete-list:hover{
+    background-color: red;
+}
+.deleteAll:active{
+    box-shadow: inset 0px 6px 7px black;
+}
+.choose-list{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+.choose-list div label{
+    margin-right: 20px;
+}
+.choose-list div input{
+    height: 1.2rem;
+    width: 1.2rem;
+}
+.choose-list div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 20px;
+}
+#review-body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+#review-body .ratingBox{
+    display: flex;
+    justify-content: center;
+}
+#review-body span:last-child{
+    margin-bottom: 1rem;
+}
+@media (max-width: 586px) {
+    .card-img-top {
+        height: 100%;
+        position: relative;
+        top: 0px;
+    }
+    .lists-btn{
+        margin: 0px 20px;
+    }
+    .listing-count{
+        flex-direction: column;
+    }
+    .listing-count form{
+        flex-direction: row;
+        justify-content: space-between;
+        /* min-width: 270px; */
+    }
+    .create-list,.update{
+        margin-right: 15px;
+    }
+    #review-body{
+        max-width: 280px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+@media (max-width: 767px) {
+    .manage{
+        display: none;
+    }
+    .manage-hide{
+        display: flex;
+    }
+    .profile-img img{
+        height: 120px;
+        width: 120px;
+    }
+}
