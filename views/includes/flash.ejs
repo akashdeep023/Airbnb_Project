@@ -24,6 +24,28 @@
             top: calc(5.5rem - 190px);
         }
     }
+    @media (max-width: 767px) {
+        .anima{
+            top: 8rem;
+        }
+        @keyframes slide-in {
+        0% {
+            top: calc(8rem - 90px);
+        }
+
+        25% {
+            top: 8rem;
+        }
+
+        75% {
+            top: 8rem;
+        }
+
+        100% {
+            top: calc(8rem - 190px);
+        }
+    }
+    }
 </style>
 <!-- add on boilerplate -->
 <% if(success && success.length){ %>
