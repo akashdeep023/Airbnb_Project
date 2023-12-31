@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 const reviewSchema = new Schema({
     comment: {
         type: String,
-        // unique: true,
     },
     rating: {
         type: Number,
@@ -18,6 +17,11 @@ const reviewSchema = new Schema({
     author: {
         type: Schema.Types.ObjectId,
         ref: "User"
+    },
+    // add listing id
+    listing: {
+        type: Schema.Types.ObjectId,
+        ref: "Listing"
     }
 });
 
