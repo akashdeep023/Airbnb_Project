@@ -90,13 +90,11 @@ module.exports.destroyListing = async (req, res, next) => {
 };
 
 module.exports.filter = async (req, res, next) => {
-	// let {q} = req.query;
 	let { id } = req.params;
 	let allListing = await Listing.find({ category: { $all: [id] } });
 	console.log(allListing);
 	if (allListing.length != 0) {
-		// req.flash("success",`Listings Find by ${id}`)
-		res.locals.success=`Listings Find by ${id}`
+		res.locals.success = `Listings Find by ${id}`;
 		res.render("listings/index.ejs", { allListing });
 	} else {
 		req.flash("error", "Listings is not here !!!");
@@ -132,12 +130,10 @@ module.exports.search = async (req, res) => {
 	}
 	console.log(element);
 
-	// let allListing = await Listing.find({title: element}).sort({_id: -1})
 	let allListing = await Listing.find({
 		title: { $regex: element, $options: "i" },
 	});
 	if (allListing.length != 0) {
-		// req.flash("success", "Listings searched by Title");
 		res.locals.success = "Listings searched by Title";
 		res.render("listings/index.ejs", { allListing });
 		return;
@@ -147,7 +143,6 @@ module.exports.search = async (req, res) => {
 			category: { $regex: element, $options: "i" },
 		}).sort({ _id: -1 });
 		if (allListing.length != 0) {
-			// req.flash("success", "Listings searched by Category");
 			res.locals.success = "Listings searched by Category";
 			res.render("listings/index.ejs", { allListing });
 			return;
@@ -158,7 +153,6 @@ module.exports.search = async (req, res) => {
 			country: { $regex: element, $options: "i" },
 		}).sort({ _id: -1 });
 		if (allListing.length != 0) {
-			// req.flash("success", "Listings searched by Country");
 			res.locals.success = "Listings searched by Country";
 			res.render("listings/index.ejs", { allListing });
 			return;
@@ -169,7 +163,6 @@ module.exports.search = async (req, res) => {
 			location: { $regex: element, $options: "i" },
 		}).sort({ _id: -1 });
 		if (allListing.length != 0) {
-			// req.flash("success", "Listings searched by Location");
 			res.locals.success = "Listings searched by Location";
 			res.render("listings/index.ejs", { allListing });
 			return;
@@ -183,10 +176,6 @@ module.exports.search = async (req, res) => {
 			price: 1,
 		});
 		if (allListing.length != 0) {
-			// req.flash(
-			// 	"success",
-			// 	`Listings searched for less than Rs ${element}`
-			// );
 			res.locals.success = `Listings searched for less than Rs ${element}`;
 			res.render("listings/index.ejs", { allListing });
 			return;
@@ -196,5 +185,4 @@ module.exports.search = async (req, res) => {
 		req.flash("error", "Listings is not here !!!");
 		res.redirect("/listings");
 	}
-	// res.render("listings/index.ejs", { allListing });
 };
