@@ -1,0 +1,23 @@
+/* button style */
+.styleBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    margin-bottom: 10px;
+    text-align: center;
+    height: 2.3rem;
+    width: 5.5rem;
+    border: 1px solid grey;
+    border-radius: 20px;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    box-shadow: inset 0px 3px 5px black;
+}
+.styleBtn:active{
+    box-shadow: inset 0px 6px 7px black;
+}
