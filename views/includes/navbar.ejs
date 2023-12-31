@@ -1,45 +1,45 @@
 <link rel="stylesheet" href="/css/navbar.css"> <!-- link style file -->
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-  <div class="container-fluid">
-    <!-- <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a> -->
-    <!-- <i class="fa-regular fa-compass"></i> -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <!-- <a class="nav-link" href="/">Home</a> -->
-        <a class="nav-link a-bigIcon" href="/listings"><img class="imgAirbnb" src="/Icon/name-logo.png"
-            alt="Airbnb"></a>
-        <a class="nav-link a-Icon" href="/listings"><img class="imgAirbnb-s" src="/Icon/name-logo-s.png"
-            alt="Airbnb"></a>
+
+<nav class="nav-box">
+  <div id="nav-main">
+    <div id="nav-main-bar">
+      <div class="nav-icon">
+        <a href="/listings"><img class="imgAirbnb" src="/Icon/name-logo.png" alt="Airbnb"></a>
+        <a href="/listings"><img class="imgAirbnb-s" src="/Icon/name-logo-s.png" alt="Airbnb"></a>
       </div>
-      <div class="navbar-nav ms-auto searchBox-main">
+      <div class="nav-search nav-hover nav-search-search">
         <form class="d-flex" role="search" action="/listings/search" method="get" id="searchBox">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q"
-            id="mySearchInput">
-          <button class="btn btn-outline-success" type="submit" id="search">Search</button>
+          <input type="search" placeholder="Search" aria-label="Search" name="q" id="mySearchInput">
+          <button type="submit" id="search"><i class="fa-solid fa-magnifying-glass"></i></i></button>
         </form>
       </div>
-      <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/listings/new">Airbnb your home</a>
-        <!-- user middleware se res.local se aa rha h -->
+      <div class="nav-user nav-hover">
+        <div>
+          <img src="/Icon/navbar-icon.png" id="png-img-bar">
+          <img src="/Icon/navbar-icon-user.png" alt="User" id="png-img-user">
+          <img src="/Icon/navbar-icon-cross.png" id="png-img-cross">
+        </div>
+      </div>
+      <div class="user-fnx" style="display: none;">
+        <a href="/profile">Profile</a>
+        <a href="/listings/new">Airbnb your home</a>
         <% if(!currUser){ %>
-          <a class="nav-link" href="/signup">SignUp</a>
-          <a class="nav-link" href="/login">LogIn</a>
+          <a href="/signup">SignUp</a>
+          <a href="/login">LogIn</a>
         <% } %>
         <% if(currUser){ %>
-          <a class="nav-link" href="/logout">LogOut</a>
+          <a href="/logout">LogOut</a>
         <% } %>
+      </div>
+    </div>
+    <div id="nav-search-hide">
+      <div class="nav-search nav-hover">
+        <form class="d-flex" role="search" action="/listings/search" method="get" id="searchBox">
+          <input type="search" placeholder="Search" aria-label="Search" name="q" id="mySearchInput">
+          <button type="submit" id="search"><i class="fa-solid fa-magnifying-glass"></i></i></button>
+        </form>
       </div>
     </div>
   </div>
 </nav>
-<script>
-  const searchInput = document.getElementById('mySearchInput');
-
-  searchInput.addEventListener('input', function () {
-    const inputValue = searchInput.value;
-    console.log(typeof inputValue); // It will always log 'string'
-  });
-</script>
+<script src="/js/navbar.js"></script>
