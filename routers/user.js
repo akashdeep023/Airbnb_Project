@@ -24,6 +24,11 @@ router.get("/logout",userController.logoutUser)     //logout----------
 router.get("/", (req, res) => {                     //redirect home page---------
     res.redirect("/listings")
 })
+router.get("/account-update/:id", wrapAsync(userController.updateFormRender))  //update  form render------------
+
+router.post("/account-update/:id", wrapAsync(userController.updateAccount))  //update account------------
+
+router.post("/account-delete/:id", wrapAsync(userController.deleteAccount))  //delete account------------
 
 module.exports = router;                            //export---app.js---------------
 
