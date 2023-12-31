@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="/css/show.css">
+<link rel="stylesheet" href="/css/delete-confirm.css">
+<link rel="stylesheet" href="/css/button-style.css">
 <% layout("/layouts/boilerplate") %>
 <style>
     @media (max-width:768px) {
@@ -22,7 +24,7 @@
                     <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing_image">
                 </div>
                 <div class="card-body ms-1">
-                    <p class="card-text"><b>Owned by :</b> <b><i><%= listing.owner.username %></i></b></p>
+                    <p class="card-text"><b>Owned by :</b> <b><i>@<%= listing.owner.username %></i></b></p>
                     <p class="card-text"><b>Description :</b> <%= listing.description %> </p>
                     <p class="card-text"><b>Price :</b> &#8377; <%= listing.price.toLocaleString("en-In") %> / night </p>
                     <p class="card-text"><b>Country :</b> <%= listing.location %>, <%= listing.country %>  <i class="fa-solid fa-location-dot" style="margin-right: 1rem; font-size: 1.25rem;"></i></p>
@@ -33,9 +35,17 @@
             <% if(currUser && currUser._id.equals(listing.owner._id)){ %>
             <div class="btns offset-2 ">
                 <div class="btns-edit">
-                    <a type="button" href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-1 offset-3 edit-btn">Edit</a>
+                    <a type="button" href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-1 offset-3 edit-btn styleBtn">Edit</a>
                     <form method="post" action="/listings/<%= listing._id %>?_method=DELETE">
-                        <button class="btn btn-dark offset-4 del-btn">Delete</button>
+                        <button type="reset" class="btn btn-danger offset-4 del-btn styleBtn" id="delete-confirm">Delete</button>
+                        <div class="fnx-fixed-dis">
+                            <div class="delete-fnx" style="display: none;">
+                                <p>I want to delete this listings.</p>
+                                <p>"<%= listing.title %>"</p>
+                                <div class="conf cancle-confirm">Cancle</div>
+                                <button class="conf delete-confirm">Confirm</button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -69,7 +79,7 @@
                         <textarea class="form-control" name="review[comment]" id="comment" cols="30" rows="3" required></textarea>
                         <div class="invalid-feedback">Please add some comments for review</div>
                     </div>
-                    <button class="btn btn-success mb-3">Submit</button>
+                    <button class="btn btn-success mb-3 styleBtn">Submit</button>
                 </form>
                 <% } %>
                 <% if(listing.reviews.length > 0 ){ %>
@@ -111,4 +121,5 @@
         </div>
     </div>
 <script src="/js/map.js"></script>
+<script src="/js/delete-confirm.js"></script>
 
