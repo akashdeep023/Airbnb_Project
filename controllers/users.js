@@ -10,7 +10,7 @@ module.exports.signUser = async(req,res,next)=>{
         const newUser = new User({email,username});
         const registeredUser = await User.register(newUser,password);
         console.log(registeredUser);
-        req.login(registeredUser,(err)=>{       
+        req.login(registeredUser,(err)=>{
             if(err){
                 return next(err);
             }
@@ -29,7 +29,7 @@ module.exports.renderLoginForm = (req,res)=>{
 
 module.exports.loginUser = async(req,res,next)=>{
     req.flash("success","Welcome back to Wanderlust! ")
-    let redirectUrl = res.locals.redirectUrl || "/listings";  
+    let redirectUrl = res.locals.redirectUrl || "/listings";
     res.redirect(redirectUrl)
 }
 
@@ -41,4 +41,30 @@ module.exports.logoutUser = (req,res,next)=>{
         req.flash("success","You are logged out!");
         res.redirect("/listings")
     })
+}
+
+
+
+
+
+
+
+
+
+
+module.exports.updateFormRender =async (req, res, next) => {
+    let { id } = req.params;
+    console.log(id)
+    let user = await User.findById(id);
+    res.render("users/update.ejs", {user})
+}
+module.exports.updateAccount =async (req, res, next) => {
+    let { id } = req.params;
+    console.log(id)
+    res.redirect("/listings")
+}
+module.exports.deleteAccount =async (req, res, next) => {
+    let { id } = req.params;
+    console.log(id)
+    res.redirect("/listings")
 }
