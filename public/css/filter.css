@@ -103,7 +103,7 @@
 }
 
 .tax-toggle {
-    border: 1px solid rgba(0, 0, 0, 0.174);
+    border: .5px solid rgba(128, 128, 128, 0.503);
     border-radius: 12px;
     height: 3rem;
     min-width: 300px;
@@ -174,12 +174,12 @@
     .tax-toggle {
         display: block;
         position: sticky !important;
-        top: 5.5rem !important;
+        top: calc(8rem - .5px) !important;
         z-index: 15;
         margin: 0px auto !important;
-        padding: 0.8rem 2rem 0.8rem 0rem;
+        padding: 0.6rem 2rem 1rem 0rem;
+        border: .5px solid rgba(128, 128, 128, 0.703);
     }
-
     .tax-filter {
         display: none;
     }
@@ -192,6 +192,7 @@
         min-width: 35px;
         padding-left: 18px;
         padding-top: 12px;
+        margin: 25px 0px !important;
         display: block;
     }
 }
