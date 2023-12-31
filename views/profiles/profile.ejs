@@ -1,0 +1,203 @@
+<% layout("/layouts/boilerplate") %> <!-- is layout use karne se html ka set custome boilerplate milta h -->
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/delete-confirm.css">
+    <div class="">
+        <div class="main-profiles mt-1">
+            <div class="main-profile-detail">
+                <div class="profile-img">
+                    <img src="/Icon/navbar-icon-user.png" alt="Profile">
+                </div>
+                <div class="profile-user">
+                    <h3>Username : @<%= currUser.username %>
+                    </h3>
+                    <h4>Email : <%= currUser.email.split("").slice(0,2).join("") %>xxxxx@<%= currUser.email.split("@")[1] %>
+                    </h4>
+                </div>
+                <div class="manage">
+                    <form action="/account-update/<%= currUser._id %>">
+                        <button class="update">Update Ac</button>
+                    </form>
+                    <form method="post" action="/account-delete/<%= currUser._id %>">
+                        <button class="delete">Delete Ac</button>
+                    </form>
+                </div>
+            </div>
+            <div class="manage manage-hide">
+                <form action="/account-update/<%= currUser._id %>">
+                    <button class="update">Update Ac</button>
+                </form>
+                <form method="post" action="/account-delete/<%= currUser._id %>">
+                    <button class="btn btn-primary delete">Delete Ac</button>
+                </form>
+            </div>
+            <div class="choose-list">
+                <div>
+                    <label for="listBtn"><b>Listings</b></label>
+                    <input type="radio" name="listing" id="listBtn" checked>
+                </div>
+                <div>
+                    <label for="reviBtn"><b>Reviews</b></label>
+                    <input type="radio" name="listing" id="reviBtn">
+                </div>
+            </div>
+        </div>
+
+
+         <!-- reviews show -->
+         <div id="review-box-start" style="display: none;">
+            <hr>
+            <div class="listing-count">
+                <h3 class="index-res">@<%= currUser.username %> Created&nbsp;<b class="text-success fs-4"><%= allReview.length %></b>&nbsp;Reviews</h3>
+                <form method="post" action="/profile/all-reviews-delete/<%= currUser._id %>?_method=DELETE">
+                    <button type="reset" class="deleteAll delete-list" id="delete-confirm">Delete All</button>
+                    <div class="fnx-fixed-dis">
+                        <div class="delete-fnx" style="display: none;">
+                            <p>Are you sure you want to delete the entire reviews?</p>
+                            <div class="conf cancle-confirm">Cancle</div>
+                            <button class="conf delete-confirm">Confirm</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="row row-cols-xxl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-1 profile-box">
+                <% for (const review of allReview) { %>
+                    <div class="listing-link">
+                        <div class="card col listing-card index-res">
+                            <div class="index-res-img">
+                                <div class="card-body mt-1 ms-2" id="review-body">
+                                    <span><b>Date :</b> <%= review.createAt.toString().split(" ").slice(1,4).join("-") %></span><br>
+                                    <span><b>Time :</b> <%= review.createAt.toString().split(" ")[4] %></span><br>
+                                    <!-- mobile view set and data and time re set ok -->
+                                    <span><b>Comment :</b> <%= review.comment %></span><br>
+                                    <span class="ratingBox"><b>Rating : &nbsp;</b> <p class="starability-result" data-rating="<%= review.rating %>"></p></span>
+                                    <!-- <i class="fa-solid fa-star"></i> -->
+                                </div>
+                                <div class="lists-btn mt-1">
+                                    <button class="list-btn list-show"><a href="/listings/<%= review.listing %>">Show</a></button>
+                                    <form method="post" action="/profile/review/<%= review.listing %>/<%= review._id %>?_method=DELETE">
+                                        <button type="reset" class="list-btn list-delete" id="delete-confirm">Delete</button>
+                                        <div class="fnx-fixed-dis">
+                                            <div class="delete-fnx" style="display: none;">
+                                                <p>I want to delete this review.</p>
+                                                <p>"<%= review.comment %>"</p>
+                                                <div class="conf cancle-confirm">Cancle</div>
+                                                <button class="conf delete-confirm">Confirm</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+
+
+        <!-- listings show -->
+        <hr>
+        <div id="listing-box">
+            <div class="listing-count">
+                <h3 class="index-res">@<%= currUser.username %> Created&nbsp;<b class="text-success fs-4"><%= allListing.length %></b>&nbsp;Listings</h3>
+                <form method="post" action="/profile/all-listings-delete/<%= currUser._id %>?_method=DELETE">
+                    <a href="/listings/new" class="deleteAll create-list">Create Li..</a>
+                    <button type="reset" class="deleteAll delete-list" id="delete-confirm">Delete All</button>
+                    <div class="fnx-fixed-dis">
+                        <div class="delete-fnx" style="display: none;">
+                            <p>Are you sure you want to delete the entire listings?</p>
+                            <div class="conf cancle-confirm">Cancle</div>
+                            <button class="conf delete-confirm">Confirm</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="row row-cols-xxl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-1 profile-box">
+                <% for (const listing of allListing) { %>
+                        <div class="listing-link">
+                            <div class="card col listing-card index-res">
+                                <div class="index-res-img">
+                                    <div class="card-img">
+                                        <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" />
+                                    </div>
+                                    <div class="card-body mt-1 ms-2">
+                                        <p class="card-text" style="display: block;">
+                                            <b><%= listing.title %></b> <br>
+                                            <span>&nbsp;<%= listing.location %>, <%= listing.country %></span>
+                                        </p>
+                                    </div>
+                                    <div class="lists-btn mt-1">
+                                        <button class="list-btn list-show"><a href="/listings/<%= listing._id %>">Show</a></button>
+                                        <form method="post" action="/profile/listing/<%= listing._id %>?_method=DELETE">
+                                            <button type="reset" class="list-btn list-delete" id="delete-confirm">Delete</button>
+                                            <div class="fnx-fixed-dis">
+                                                <div class="delete-fnx" style="display: none;">
+                                                    <p>I want to delete this listing.</p>
+                                                    <p>"<%= listing.title %>"</p>
+                                                    <div class="conf cancle-confirm">Cancle</div>
+                                                    <button class="conf delete-confirm">Confirm</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                <% } %>
+            </div>
+        </div>
+        <hr>
+
+
+        <!-- reviews show -->
+        <div id="review-box-end">
+            <div class="listing-count">
+                <h3 class="index-res">@<%= currUser.username %> Created&nbsp;<b class="text-success fs-4"><%= allReview.length %></b>&nbsp;Reviews</h3>
+                <form method="post" action="/profile/all-reviews-delete/<%= currUser._id %>?_method=DELETE">
+                    <button type="reset" class="deleteAll delete-list" id="delete-confirm">Delete All</button>
+                    <div class="fnx-fixed-dis">
+                        <div class="delete-fnx" style="display: none;">
+                            <p>Are you sure you want to delete the entire reviews?</p>
+                            <div class="conf cancle-confirm">Cancle</div>
+                            <button class="conf delete-confirm">Confirm</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="row row-cols-xxl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-1 profile-box">
+                <% for (const review of allReview) { %>
+                    <div class="listing-link">
+                        <div class="card col listing-card index-res">
+                            <div class="index-res-img">
+                                <div class="card-body mt-1 ms-2" id="review-body">
+                                    <span><b>Date :</b> <%= review.createAt.toString().split(" ").slice(1,4).join("-") %></span><br>
+                                    <span><b>Time :</b> <%= review.createAt.toString().split(" ")[4] %></span><br>
+                                    <!-- mobile view set and data and time re set ok -->
+                                    <span><b>Comment :</b> <%= review.comment %></span><br>
+                                    <span class="ratingBox"><b>Rating : &nbsp;</b> <p class="starability-result" data-rating="<%= review.rating %>"></p></span>
+                                    <!-- <i class="fa-solid fa-star"></i> -->
+                                </div>
+                                <div class="lists-btn mt-1">
+                                    <button class="list-btn list-show"><a href="/listings/<%= review.listing %>">Show</a></button>
+                                    <form method="post" action="/profile/review/<%= review.listing %>/<%= review._id %>?_method=DELETE">
+                                        <button type="reset" class="list-btn list-delete" id="delete-confirm">Delete</button>
+                                        <div class="fnx-fixed-dis">
+                                            <div class="delete-fnx" style="display: none;">
+                                                <p>I want to delete this review.</p>
+                                                <p>"<%= review.comment %>"</p>
+                                                <div class="conf cancle-confirm">Cancle</div>
+                                                <button class="conf delete-confirm">Confirm</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+
+
+    </div>
+<script src="/js/delete-confirm.js"></script>
+<script src="/js/profile.js"></script>
