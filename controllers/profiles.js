@@ -5,8 +5,11 @@ module.exports.profile = async (req, res) => {
 	let allListing = await Listing.find({ owner: req.user._id })
 		.populate("owner")
 		.sort({ _id: -1 });
+
+	let originalImage = req.user.image.url;
+	originalImage = originalImage.replace("/upload", "/upload/w_200,h_200");
 	let allReview = await Review.find({ author: req.user._id });
-	res.render("profiles/profile.ejs", { allListing, allReview });
+	res.render("profiles/profile.ejs", { allListing, allReview,originalImage });
 };
 
 module.exports.allListingDestroy = async (req, res, next) => {
