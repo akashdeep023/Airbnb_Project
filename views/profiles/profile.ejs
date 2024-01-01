@@ -2,32 +2,51 @@
     <link rel="stylesheet" href="/css/profile.css">
     <link rel="stylesheet" href="/css/delete-confirm.css">
     <div class="">
-        <div class="main-profiles mt-1">
+        <div class="main-profiles mt-2">
             <div class="main-profile-detail">
                 <div class="profile-img">
-                    <img src="/Icon/navbar-icon-user.png" alt="Profile">
+                    <img src="<%= originalImage %>" alt="Profile">
                 </div>
                 <div class="profile-user">
-                    <h3>Username : @<%= currUser.username %>
+                    <h3><span>Name : </span><%= currUser.fName.split("")[0].toUpperCase() %><%= currUser.fName.slice(1).toLowerCase() %>&nbsp;<%= currUser.lName %>
                     </h3>
-                    <h4>Email : <%= currUser.email.split("").slice(0,2).join("") %>xxxxx@<%= currUser.email.split("@")[1] %>
+                    <h3><span>Username : </span>@<%= currUser.username %>
+                    </h3>
+                    <h4><span>Email : </span><%= currUser.email.split("").slice(0,2).join("") %>xxxxx@<%= currUser.email.split("@")[1] %>
                     </h4>
                 </div>
                 <div class="manage">
-                    <form action="/account-update/<%= currUser._id %>">
-                        <!-- <button class="update">Update Ac</button> -->
+                    <form action="/update/<%= currUser._id %>">
+                        <button class="update">Update Ac</button>
                     </form>
-                    <form method="post" action="/account-delete/<%= currUser._id %>">
-                        <!-- <button class="delete">Delete Ac</button> -->
+                    <form method="post" action="/delete/<%= currUser._id %>?_method=DELETE">
+                        <button type="reset" class="list-btn list-delete" id="delete-confirm">Delete Ac</button>
+                        <div class="fnx-fixed-dis">
+                            <div class="delete-fnx" style="display: none;">
+                                <p><b>Are you sure</b></p>
+                                <p>you want to delete your account?</p>
+                                <div class="conf cancle-confirm">Cancle</div>
+                                <button class="conf delete-confirm">Confirm</button>
+                            </div>
+                        </div>
                     </form>
+
                 </div>
             </div>
             <div class="manage manage-hide">
-                <form action="/account-update/<%= currUser._id %>">
+                <form action="/update/<%= currUser._id %>">
                     <button class="update">Update Ac</button>
                 </form>
-                <form method="post" action="/account-delete/<%= currUser._id %>">
-                    <button class="btn btn-primary delete">Delete Ac</button>
+                <form method="post" action="/delete/<%= currUser._id %>?_method=DELETE">
+                    <button type="reset" class="list-btn list-delete" id="delete-confirm">Delete Ac</button>
+                    <div class="fnx-fixed-dis">
+                        <div class="delete-fnx" style="display: none;">
+                            <p><b>Are you sure</b></p>
+                            <p>you want to delete your account?</p>
+                            <div class="conf cancle-confirm">Cancle</div>
+                            <button class="conf delete-confirm">Confirm</button>
+                        </div>
+                    </div>
                 </form>
             </div>
             <div class="choose-list">
