@@ -1,5 +1,6 @@
 const Listing = require("./models/listing.js");
 const Review = require("./models/review.js");
+const User = require("./models/user.js");
 const ExpressError = require("./utils/ExpressError.js");
 const { listingSchema, reviewSchema } = require("./schema.js");
 
@@ -122,8 +123,17 @@ module.exports.isReviewAll = async (req, res, next) => {
 	}
 };
 
-// Middleware to save the current URL in the session
-// module.exports.currUrl = (req, res, next) => {
-//     req.session.currUrl = req.originalUrl;
-//     next();
-// };
+module.exports.isProfileOwner = async (req, res, next) => {
+	try {
+		let { id } = req.params;
+		let user = await User.findById(id);
+		if (!user._id.equals(res.locals.currUser._id)) {
+			req.flash("error", "You are not the profile owner.");
+			return res.redirect(`/listings/${id}`);
+		}
+		next();
+	} catch (err) {
+		next(new ExpressError(400, "This Profile Page is not valid..."));
+	}
+};
+
