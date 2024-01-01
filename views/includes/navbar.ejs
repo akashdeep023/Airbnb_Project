@@ -16,7 +16,12 @@
       <div class="nav-user nav-hover">
         <div>
           <img src="/Icon/navbar-icon.png" id="png-img-bar">
+          <% if(!currUser){ %>
           <img src="/Icon/navbar-icon-user.png" alt="User" id="png-img-user">
+          <% } %>
+          <% if(currUser){ %>
+          <img src="<%= currUser.image.url %>" alt="Profile" id="png-img-user">
+          <% } %>
           <img src="/Icon/navbar-icon-cross.png" id="png-img-cross">
         </div>
       </div>
