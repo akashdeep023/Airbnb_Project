@@ -223,10 +223,11 @@ body::-webkit-scrollbar-thumb,
     }
 }
 
-.listingImg {
-    width: 200px;
+.listingImg,.listingImg img {
+    width: 200px !important;
     height: 150px;
     border-radius: 10px;
+    object-fit: cover;
 }
 
 /* map ------------------------------------------------------------------------------------- */
@@ -385,4 +386,12 @@ body::-webkit-scrollbar-thumb,
     .card-text {
         margin-left: 15px;
     }
+}
+/* update.ejs------------------- */
+
+#imagePreview img,.listingImg-update{
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 10px;
 }
