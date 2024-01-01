@@ -33,7 +33,7 @@
                     <div class="col-10">
                         <label for="image" class="form-label">Upload New Image</label>
                         <input type="file" name="listing[image]"
-                            class="form-control border border-black border-opacity-50 imageInput" id="verify-img">
+                            class="form-control border border-black border-opacity-50 imageInput" id="verify-img" onchange="previewImage()">
                         <p id="errorContainer"></p>
                     </div>
                     <div class="col-2">
@@ -43,6 +43,12 @@
                             class="form-btn btn ms-2 border border-black border-opacity-50" required
                             style="height: 25px; width:25px;">
                         <div class="invalid-feedback">Varify</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Update Image Preview</label><br>
+                    <div id="imagePreview" class="listingImg">
+                        <img src="/Icon/listing-img-pre.png" alt="demo">
                     </div>
                 </div>
                 <div class="m-b3">
@@ -123,3 +129,4 @@
     </div>
 
     <script src="/js/editImg-size.js"></script>
+    <script src="/js/image-preview.js"></script>
