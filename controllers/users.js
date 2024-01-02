@@ -1,4 +1,6 @@
 const User = require("../models/user");
+const Listing = require("../models/listing");
+const Review = require("../models/review")
 
 module.exports.renderSignupForm = (req, res) => {
 	res.render("users/signup");
@@ -96,8 +98,10 @@ module.exports.updatePassword = async (req, res, next) => {
 module.exports.deleteAccount = async (req, res, next) => {
 	try {
 		let { id } = req.params;
+		await Listing.deleteMany({ owner: id });
+		await Review.deleteMany({author: id})
 		await User.findByIdAndRemove(id);
-		req.logout();
+		// req.logout();
 		req.flash("error", "Your account has been successfully deleted.");
 		res.redirect("/listings");
 	} catch (e) {
