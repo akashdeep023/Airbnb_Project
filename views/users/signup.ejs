@@ -4,7 +4,7 @@
     <div class="row mt-3 mx-auto"><!-- style="height: calc(100vh - 15.5rem);" -->
         <div class="col-md-8 mx-auto">
             <h2>Signup on WonderLust</h2>
-            <form action="/signup" method="post" class="needs-validation" novalidate enctype="multipart/form-data" >  <!-- multipart/form-data type send  -->
+            <form action="/signup" method="post" class="needs-validation" novalidate>
 
                 <div class="mb-3">
                     <label for="fName" class="form-label">First Name</label>
@@ -17,24 +17,6 @@
                     <input id="lName" type="text" placeholder="Enter Last Name" name="lName" class="form-control border border-black border-opacity-50" required>
                     <div class="valid-feedback">Looks good!</div>
                     <div class="invalid-feedback">Last Name should be valid</div>
-                </div>
-                <div class=" row mb-3">
-                    <div class="col-10">
-                        <label for="image" class="form-label">Add Image</label>
-                        <input type="file" name="image" class="form-control border border-black border-opacity-50" id="verify-img" required onchange="previewImage()">
-                        <p id="errorContainer"></p>
-                    </div>
-                    <div class="col-2">
-                        <label class="form-control border border-white" style="margin-left: -15px;font-weight: 700;" for="verify">Verify</label>
-                        <input type="checkbox" id="verify" class="form-btn btn ms-2 border border-black border-opacity-50"  required style="height: 25px; width:25px;">
-                        <div class="invalid-feedback">Varify</div>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="image" class="form-label">Add Image Preview</label><br>
-                    <div id="imagePreview">
-                        <img src="/Icon/update-img-pre.png" alt="demo">
-                    </div>
                 </div>
 
                 <div class="mb-3">
@@ -56,9 +38,9 @@
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input id="password" type="password" placeholder="Enter Password" name="password" class="form-control border border-black border-opacity-50" required>
+                    <input id="password" type="password" placeholder="Enter Password" name="password" class="form-control border border-black border-opacity-50" minlength="8" required>
                     <div class="valid-feedback">Looks good!</div>
-                    <div class="invalid-feedback">Password should be valid</div>
+                    <div class="invalid-feedback">Please lengthen this text to 8 charaters or more.</div>
                 </div>
                 <div class="form-check mb-2 mr-sm-2">
                     <input class="form-check-input mt-2" style="opacity: 1;" type="checkbox" id="inlineFormCheck" required>
@@ -71,6 +53,3 @@
         </div>
     </div>
 </body>
-
-<script src="/js/newImg-size.js"></script>
-<script src="/js/image-preview.js"></script>
