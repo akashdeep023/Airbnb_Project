@@ -8,13 +8,9 @@ module.exports.renderSignupForm = (req, res) => {
 
 module.exports.signUser = async (req, res, next) => {
 	try {
-		let url = req.file.path;
-		let filename = req.file.filename;
 		let { fName, lName, username, email, password } = req.body;
 		const newUser = new User({ fName, lName, email, username });
-		newUser.image = { url, filename };
 		const registeredUser = await User.register(newUser, password);
-		console.log(registeredUser);
 		req.login(registeredUser, (err) => {
 			if (err) {
 				return next(err);
@@ -63,18 +59,11 @@ module.exports.updateAccount = async (req, res, next) => {
 			username: username,
 			email: email,
 		});
-
-		if (typeof req.file != "undefined") {
-			let url = req.file.path;
-			let filename = req.file.filename;
-			user.image = { url, filename };
-			await user.save();
-		}
 		req.flash("success", "Your account updated successfully.");
 		res.redirect("/profile");
 	} catch (e) {
 		req.flash("error", e.message);
-		res.redirect("/listings");
+		res.redirect(`/update-form/${req.user._id}`);
 	}
 };
 
@@ -90,10 +79,31 @@ module.exports.updatePassword = async (req, res, next) => {
 		);
 		res.redirect("/profile");
 	} catch (e) {
-		req.flash("error", e.message);
-		res.redirect("/listings");
+		req.flash("error", "Old password doesn't match.");
+		res.redirect(`/update-form/${req.user._id}`);
 	}
 };
+
+module.exports.updateImage = async (req, res, next) => {
+	try {
+		let { id } = req.params;
+		let url = req.file.path;
+		let filename = req.file.filename;
+		let user =await User.findById(id)
+		user.image = { url, filename };
+		await user.save();
+			req.flash("success", "Your account image has been successfully updated.");
+			res.redirect("/profile");
+	} catch (e) {
+		req.flash("error", e.message);
+		res.redirect(`/update-form/${req.user._id}`);
+	}
+};
+module.exports.renderImageChangeForm =async (req, res, next) => {
+	let { id } = req.params;
+	let user = await User.findById(id);
+	res.render("users/changeImage.ejs", { user });
+}
 
 module.exports.deleteAccount = async (req, res, next) => {
 	try {
