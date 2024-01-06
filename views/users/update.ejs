@@ -1,91 +1,118 @@
 <% layout("/layouts/boilerplate") %>
 <link rel="stylesheet" href="/css/button-style.css">
-<body>
-    <div class="row mt-3 mx-auto"><!-- style="height: calc(100vh - 15.5rem);" -->
+
+    <div class="row mt-3 mx-auto">
         <div class="col-md-8 mx-auto">
-            <h2>Update User Password</h2>
-            <form method="post" action="/change/<%= user._id %>">
-                <div class="mb-3">
-                    <label for="password" class="form-label">Old Password</label>
-                    <input id="password" type="password" placeholder="Enter Password" name="oldPassword" class="form-control border border-black border-opacity-50" required>
-                    <div class="valid-feedback">Looks good!</div>
-                    <div class="invalid-feedback">Password should be valid</div>
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">New Password</label>
-                    <input id="password" type="password" placeholder="Enter Password" name="newPassword" class="form-control border border-black border-opacity-50" required>
-                    <div class="valid-feedback">Looks good!</div>
-                    <div class="invalid-feedback">Password should be valid</div>
-                </div>
-                <button class="btn btn-primary styleBtn">Update</button>
-            </form>
-            <hr>
-            <hr>
-            <h2>Update User Details</h2>
-            <form action="/update/<%= user._id %>" method="post" class="needs-validation" novalidate enctype="multipart/form-data" >  <!-- multipart/form-data type send  -->
 
-                <div class="mb-3">
-                    <label for="fName" class="form-label">First Name</label>
-                    <input id="fName" type="text" placeholder="Enter First Name" name="fName" value="<%= user.fName %>" class="form-control border border-black border-opacity-50" required>
-                    <div class="valid-feedback">Looks good!</div>
-                    <div class="invalid-feedback">First Name should be valid</div>
+            <div class="update-change">
+                <div>
+                    <label for="detail-find">Update Details</label>
+                    <input type="radio" name="find" id="detail-find" checked>
                 </div>
-                <div class="mb-3">
-                    <label for="lName" class="form-label">Last Name</label>
-                    <input id="lName" type="text" placeholder="Enter Last Name" name="lName" value="<%= user.lName %>" class="form-control border border-black border-opacity-50" required>
-                    <div class="valid-feedback">Looks good!</div>
-                    <div class="invalid-feedback">Last Name should be valid</div>
+                <div>
+                    <label for="password-find">Update Password</label>
+                    <input type="radio" name="find" id="password-find">
                 </div>
+                <div>
+                    <label for="image-find">Update Image</label>
+                    <input type="radio" name="find" id="image-find">
+                </div>
+            </div>
 
-                <div class="mb-3">
-                    <label for="image" class="form-label">Original Image Preview</label><br>
-                    <img src="<%= currUser.image.url %>" alt="Original Image" class="listingImg-update" id="update-img">
-                </div>
-                <div class="row mb-3">
-                    <div class="col-10">
-                        <label for="image" class="form-label">Add New Image</label>
-                        <input type="file" name="image"
-                            class="form-control border border-black border-opacity-50 imageInput" id="verify-img" onchange="previewImage()">
-                        <p id="errorContainer"></p>
+            <div id="password-box">
+                <h2>Update User Password</h2>
+                <form method="post" action="/update-password/<%= user._id %>" class="needs-validation" novalidate >
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Old Password</label>
+                        <input id="password" type="password" placeholder="Enter Password" name="oldPassword" class="form-control border border-black border-opacity-50" minlength="8" required>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Please lengthen this text to 8 charaters or more.</div>
                     </div>
-                    <div class="col-2">
-                        <label class="form-control border border-white" style="margin-left: -15px;font-weight: 700;"
-                            for="verify">Verify</label>
-                        <input type="checkbox" checked id="verify"
-                            class="form-btn btn ms-2 border border-black border-opacity-50" required
-                            style="height: 25px; width:25px;">
-                        <div class="invalid-feedback">Varify</div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">New Password</label>
+                        <input id="password" type="password" placeholder="Enter Password" name="newPassword" class="form-control border border-black border-opacity-50" minlength="8" required>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Please lengthen this text to 8 charaters or more.</div>
                     </div>
-                </div>
-                <div class="mb-3">
-                    <label for="image" class="form-label">Add Image Preview</label><br>
-                    <div id="imagePreview">
-                        <img src="/Icon/update-img-pre.png" alt="demo">
+                    <button class="btn btn-primary styleBtn">Update</button>
+                </form>
+            </div>
+
+
+            <div id="detail-box">
+                <h2>Update User Details</h2>
+                <form action="/update-account/<%= user._id %>" method="post" class="needs-validation" novalidate>
+                    <div class="mb-3">
+                        <label for="fName" class="form-label">First Name</label>
+                        <input id="fName" type="text" placeholder="Enter First Name" name="fName" value="<%= user.fName %>" class="form-control border border-black border-opacity-50" required>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">First Name should be valid</div>
                     </div>
-                </div>
-                <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1">@</span>
+                    <div class="mb-3">
+                        <label for="lName" class="form-label">Last Name</label>
+                        <input id="lName" type="text" placeholder="Enter Last Name" name="lName" value="<%= user.lName %>" class="form-control border border-black border-opacity-50" required>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Last Name should be valid</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">@</span>
+                            </div>
+                            <input id="username" type="text" placeholder="Enter Username" name="username" value="<%= user.username %>" class="form-control border border-black border-opacity-50" required>
                         </div>
-                        <input id="username" type="text" placeholder="Enter Username" name="username" value="<%= user.username %>" class="form-control border border-black border-opacity-50" required>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Username should be valid</div>
                     </div>
-                    <div class="valid-feedback">Looks good!</div>
-                    <div class="invalid-feedback">Username should be valid</div>
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input id="email" type="email" placeholder="Enter Email" name="email" value="<%= user.email %>" class="form-control border border-black border-opacity-50" required>
-                    <div class="valid-feedback">Looks good!</div>
-                    <div class="invalid-feedback">Email should be valid</div>
-                </div>
-                <button class="btn btn-primary styleBtn">Update</button>
-            </form>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input id="email" type="email" placeholder="Enter Email" name="email" value="<%= user.email %>" class="form-control border border-black border-opacity-50" required>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Email should be valid</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary styleBtn">Update</button>
+                </form>
+            </div>
 
+
+            <div id="image-box">
+                <h2>Update User Image</h2>
+                <form action="/update-image/<%= user._id %>" method="post" class="needs-validation" enctype="multipart/form-data" novalidate>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Original Image Preview</label><br>
+                        <% if(!currUser.image.url){ %>
+                            <img src="/Icon/navbar-icon-user.png" alt="Original Image" class="listingImg-update"
+                                id="update-img">
+                            <% }else{ %>
+                                <img src="<%= user.image.url %>" alt="Original Image" class="listingImg-update"
+                            id="update-img">
+                        <% } %>
+                    </div>
+                    <div class=" row mb-3">
+                        <div class="col-10">
+                            <label for="image" class="form-label">Add Image</label>
+                            <input type="file" name="image" class="form-control border border-black border-opacity-50" id="verify-img" required onchange="previewImage()">
+                            <p id="errorContainer"></p>
+                        </div>
+                        <div class="col-2">
+                            <label class="form-control border border-white" style="margin-left: -15px;font-weight: 700;" for="verify">Verify</label>
+                            <input type="checkbox" id="verify" class="form-btn btn ms-2 border border-black border-opacity-50"  required style="height: 25px; width:25px;">
+                            <div class="invalid-feedback">Varify</div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Add Image Preview</label><br>
+                        <div id="imagePreview">
+                            <img src="/Icon/update-img-pre.png" alt="demo">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary styleBtn">Update</button>
+                </form>
+            </div>
         </div>
     </div>
-</body>
 
-<script src="/js/editImg-size.js"></script>
+<script src="/js/newImg-size.js"></script>
 <script src="/js/image-preview.js"></script>
+<script src="/js/update.js"></script>
