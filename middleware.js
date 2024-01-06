@@ -2,7 +2,7 @@ const Listing = require("./models/listing.js");
 const Review = require("./models/review.js");
 const User = require("./models/user.js");
 const ExpressError = require("./utils/ExpressError.js");
-const { listingSchema, reviewSchema } = require("./schema.js");
+const { listingSchema, reviewSchema, userSchema } = require("./schema.js");
 
 module.exports.validateListing = (req, res, next) => {
 	console.log(req.body);
@@ -28,6 +28,24 @@ module.exports.validateReview = (req, res, next) => {
 		next();
 	}
 };
+
+module.exports.validateUser = (req, res, next) => {
+	let { error } = userSchema.validate(req.body);
+	if (error) {
+		let errMsg = error.details.map((el) => el.message).join(",");
+		console.log(error);
+		console.log(errMsg);
+		req.flash("error", `${errMsg}`);
+		if (!req.user) {
+			return res.redirect("/signup");
+		} else {
+			return res.redirect(`/update/${req.user._id}`)
+		}
+	} else {
+		next();
+	}
+};
+
 module.exports.isLoggedIn = (req, res, next) => {
 	if (!req.isAuthenticated()) {
 		req.session.redirectUrl = req.originalUrl;
@@ -137,3 +155,32 @@ module.exports.isProfileOwner = async (req, res, next) => {
 	}
 };
 
+module.exports.varifyEmail = async (req, res, next) => {
+	let existingUser = await User.find({ email: `${req.body.email}` });
+	if (existingUser.length == 0) {
+		return next();
+	}
+	req.flash("error", "Account with that email address already exists.");
+	if (!req.user) {
+		return res.redirect("/signup");
+	} else {
+		return res.redirect(`/update/${req.user._id}`)
+	}
+};
+module.exports.varifyUserEmail = async (req, res, next) => {
+	let existingUser = await User.find({ email: `${req.body.email}` });
+	if (existingUser.length == 0) {
+		return next();
+	}
+	if (existingUser.length <= 1) {
+		if (existingUser[0].email == req.user.email) {
+			return next();
+		}
+	}
+	req.flash("error", "Account with that email address already exists.");
+	if (!req.user) {
+		return res.redirect("/signup");
+	} else {
+		return res.redirect(`/update/${req.user._id}`)
+	}
+};
