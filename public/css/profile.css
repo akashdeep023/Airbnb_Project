@@ -5,7 +5,11 @@
 .main-profile-detail {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
+    background-color: lightskyblue;
+    border-radius: 5px;
+    padding: 30px 30px 40px 30px;
+    box-shadow:  0px 0px 10px rgba(255, 255, 255, 0.742) , 0px 5px 5px rgb(22, 6, 89);
 }
 
 .profile-user {
@@ -117,7 +121,6 @@
 
 .choose-list {
     display: flex;
-    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
     margin: 20px;
@@ -160,15 +163,46 @@
     margin-bottom: 1rem;
 }
 
-.profile-img img{
-    height: 200px;
-    width: 200px;
+.profile-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-img img {
+    height: 180px;
+    width: 180px;
     border-radius: 50%;
     overflow: hidden;
     filter: drop-shadow(5px 5px 10px black);
+    cursor: pointer;
+    margin-bottom: 5px;
 }
-.profile-img img:hover{
+
+.profile-img img:hover {
     filter: drop-shadow(3px 3px 5px black);
+}
+
+.profile-img span a {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    height: 28px;
+    background-color: rgb(19, 19, 143);
+    text-align: center;
+    font-weight: 600;
+    font-size: .9rem;
+    color: white;
+    text-decoration: none;
+    padding: 5px 40px;
+    box-shadow: 0px 3px 5px black;
+}
+
+.profile-img span a:hover {
+    background-color: #1f1184;
+    border: .5px solid rgba(0, 0, 0, 0.453);
+    box-shadow: inset 0px 5px 5px black;
+    color: rgb(181, 181, 181);
+    font-weight: 700;
 }
 
 @media (max-width: 586px) {
@@ -204,9 +238,11 @@
         align-items: center;
         justify-content: center;
     }
-    .profile-user span{
+
+    .profile-user span {
         display: none;
     }
+
 }
 
 @media (max-width: 767px) {
@@ -221,5 +257,9 @@
     .profile-img img {
         height: 120px;
         width: 120px;
+    }
+    .profile-img span a {
+        padding: 5px 15px;
+        font-size: .8rem;
     }
 }
