@@ -36,7 +36,7 @@
             <div class="btns offset-2 ">
                 <div class="btns-edit">
                     <a type="button" href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-1 offset-3 edit-btn styleBtn">Edit</a>
-                    <form method="post" action="/listings/<%= listing._id %>?_method=DELETE">
+                    <form method="post" action="/listings/<%= listing._id %>?_method=DELETE" class="needs-validation">
                         <button type="reset" class="btn btn-danger offset-4 del-btn styleBtn" id="delete-confirm">Delete</button>
                         <div class="fnx-fixed-dis">
                             <div class="delete-fnx" style="display: none;">
@@ -96,8 +96,9 @@
                                 <!-- <p class="card-text"><%# review.rating %> Stars</p> -->
                             </div>
                             <% if(currUser && currUser._id.equals(review.author._id)){ %>
-                            <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" class="mb-1 review-del" method="post">
-                                <button class="btn btn-sm btn-danger">Delete</button>
+                            <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" class="mb-1 review-del needs-validation" method="post">
+                                <!-- <button class="btn btn-sm btn-danger">Delete</button> -->
+                                <button class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i></button>
                             </form>
                             <% } %>
                         </div>
