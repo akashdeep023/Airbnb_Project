@@ -51,7 +51,6 @@ body::-webkit-scrollbar-thumb,
     width: 100% !important;
     height: 20.5rem !important;
     object-fit: cover !important;
-    opacity: .9;
     transition: .5s ease-out 0s;
 }
 
@@ -394,4 +393,43 @@ body::-webkit-scrollbar-thumb,
     width: 150px;
     object-fit: cover;
     border-radius: 10px;
+}
+.update-change{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 2rem;
+}
+.update-change > div input{
+    /* display: none; */
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+.update-change  div label{
+    font-weight: 600;
+    filter: drop-shadow( 2px 0px 1px black);
+    margin-bottom: 5px;
+    cursor: pointer;
+
+}
+.update-change  div{
+    background-color: rgb(66, 66, 82);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+#password-box,#image-box{
+    display: none;
+}
+.update-change  div:hover{
+    box-shadow: 0px 0px 5px black;
+}
+.update-change  div:active{
+    transform: scale(1.1);
 }
