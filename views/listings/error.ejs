@@ -1,4 +1,8 @@
 <% layout("/layouts/boilerplate") %>
+<link rel="stylesheet" href="/css/button-style.css">
+<form action="/listings" class="needs-validation" style="position: absolute; left: 20px; top: 9rem;">
+  <button class="btn btn-outline-success styleBtn"><i class="fa-solid fa-circle-arrow-left"></i>&nbsp;Home</button>
+</form>
 <div class="row" style="height: calc(100vh - 14.5rem);">
   <img src="/Icon/error-img.jpg" alt="error" style="height: 90%; object-fit: scale-down; margin-bottom: 20px;">
     <div class="alert  col-10 offset-1 mt-3" role="alert" style="text-align: center; position: relative; top: -60px;">
@@ -6,10 +10,7 @@
         <p class="alert-heading" style="margin: 0px;"><b><%= message.split(" ")[7].toUpperCase() %> &nbsp;duplicate</b></p>
         <p class="alert-heading"><b>Please use another <%= message.split(" ")[11] %>- </b></p>
       <% }else{ %>
-        <p class="alert-heading"><b><%= message %></b></p>          
+        <p class="alert-heading"><b><%= message %></b></p>
       <% } %>
-      <!-- <form action="/listings">
-        <button class="btn btn-outline-success">Home</button>
-      </form> -->
     </div>
 </div>
