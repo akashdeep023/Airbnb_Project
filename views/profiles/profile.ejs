@@ -5,7 +5,12 @@
         <div class="main-profiles mt-2">
             <div class="main-profile-detail">
                 <div class="profile-img">
-                    <img src="<%= originalImage %>" alt="Profile">
+                    <% if(!currUser.image.url) {%>
+                        <img src="/Icon/navbar-icon-user.png" alt="Profile">
+                    <% } else{%>
+                        <img src="<%= currUser.image.url %>" alt="Profile">
+                    <% } %>
+                    <span><a href="/change-image/<%= currUser._id %>">Change Image</a></span>
                 </div>
                 <div class="profile-user">
                     <h3><span>Name : </span><%= currUser.fName.split("")[0].toUpperCase() %><%= currUser.fName.slice(1).toLowerCase() %>&nbsp;<%= currUser.lName %>
@@ -16,10 +21,10 @@
                     </h4>
                 </div>
                 <div class="manage">
-                    <form action="/update/<%= currUser._id %>">
+                    <form action="/update-form/<%= currUser._id %>" class="needs-validation">
                         <button class="update">Update Ac</button>
                     </form>
-                    <form method="post" action="/delete/<%= currUser._id %>?_method=DELETE">
+                    <form method="post" action="/delete/<%= currUser._id %>?_method=DELETE" class="needs-validation">
                         <button type="reset" class="list-btn list-delete" id="delete-confirm">Delete Ac</button>
                         <div class="fnx-fixed-dis">
                             <div class="delete-fnx" style="display: none;">
@@ -30,14 +35,13 @@
                             </div>
                         </div>
                     </form>
-
                 </div>
             </div>
             <div class="manage manage-hide">
-                <form action="/update/<%= currUser._id %>">
+                <form action="/update-form/<%= currUser._id %>" class="needs-validation">
                     <button class="update">Update Ac</button>
                 </form>
-                <form method="post" action="/delete/<%= currUser._id %>?_method=DELETE">
+                <form method="post" action="/delete/<%= currUser._id %>?_method=DELETE" class="needs-validation">
                     <button type="reset" class="list-btn list-delete" id="delete-confirm">Delete Ac</button>
                     <div class="fnx-fixed-dis">
                         <div class="delete-fnx" style="display: none;">
@@ -67,7 +71,7 @@
             <hr>
             <div class="listing-count">
                 <h3 class="index-res">@<%= currUser.username %> Created&nbsp;<b class="text-success fs-4"><%= allReview.length %></b>&nbsp;Reviews</h3>
-                <form method="post" action="/profile/all-reviews-delete/<%= currUser._id %>?_method=DELETE">
+                <form method="post" action="/profile/all-reviews-delete/<%= currUser._id %>?_method=DELETE" class="needs-validation">
                     <button type="reset" class="deleteAll delete-list" id="delete-confirm">Delete All</button>
                     <div class="fnx-fixed-dis">
                         <div class="delete-fnx" style="display: none;">
@@ -86,14 +90,12 @@
                                 <div class="card-body mt-1 ms-2" id="review-body">
                                     <span><b>Date :</b> <%= review.createAt.toString().split(" ").slice(1,4).join("-") %></span><br>
                                     <span><b>Time :</b> <%= review.createAt.toString().split(" ")[4] %></span><br>
-                                    <!-- mobile view set and data and time re set ok -->
                                     <span><b>Comment :</b> <%= review.comment %></span><br>
                                     <span class="ratingBox"><b>Rating : &nbsp;</b> <p class="starability-result" data-rating="<%= review.rating %>"></p></span>
-                                    <!-- <i class="fa-solid fa-star"></i> -->
                                 </div>
                                 <div class="lists-btn mt-1">
                                     <button class="list-btn list-show"><a href="/listings/<%= review.listing %>">Show</a></button>
-                                    <form method="post" action="/profile/review/<%= review.listing %>/<%= review._id %>?_method=DELETE">
+                                    <form method="post" action="/profile/review/<%= review.listing %>/<%= review._id %>?_method=DELETE" class="needs-validation">
                                         <button type="reset" class="list-btn list-delete" id="delete-confirm">Delete</button>
                                         <div class="fnx-fixed-dis">
                                             <div class="delete-fnx" style="display: none;">
@@ -118,7 +120,7 @@
         <div id="listing-box">
             <div class="listing-count">
                 <h3 class="index-res">@<%= currUser.username %> Created&nbsp;<b class="text-success fs-4"><%= allListing.length %></b>&nbsp;Listings</h3>
-                <form method="post" action="/profile/all-listings-delete/<%= currUser._id %>?_method=DELETE">
+                <form method="post" action="/profile/all-listings-delete/<%= currUser._id %>?_method=DELETE" class="needs-validation">
                     <a href="/listings/new" class="deleteAll create-list">Create Li..</a>
                     <button type="reset" class="deleteAll delete-list" id="delete-confirm">Delete All</button>
                     <div class="fnx-fixed-dis">
@@ -146,7 +148,7 @@
                                     </div>
                                     <div class="lists-btn mt-1">
                                         <button class="list-btn list-show"><a href="/listings/<%= listing._id %>">Show</a></button>
-                                        <form method="post" action="/profile/listing/<%= listing._id %>?_method=DELETE">
+                                        <form method="post" action="/profile/listing/<%= listing._id %>?_method=DELETE" class="needs-validation">
                                             <button type="reset" class="list-btn list-delete" id="delete-confirm">Delete</button>
                                             <div class="fnx-fixed-dis">
                                                 <div class="delete-fnx" style="display: none;">
@@ -171,7 +173,7 @@
         <div id="review-box-end">
             <div class="listing-count">
                 <h3 class="index-res">@<%= currUser.username %> Created&nbsp;<b class="text-success fs-4"><%= allReview.length %></b>&nbsp;Reviews</h3>
-                <form method="post" action="/profile/all-reviews-delete/<%= currUser._id %>?_method=DELETE">
+                <form method="post" action="/profile/all-reviews-delete/<%= currUser._id %>?_method=DELETE" class="needs-validation">
                     <button type="reset" class="deleteAll delete-list" id="delete-confirm">Delete All</button>
                     <div class="fnx-fixed-dis">
                         <div class="delete-fnx" style="display: none;">
@@ -190,14 +192,12 @@
                                 <div class="card-body mt-1 ms-2" id="review-body">
                                     <span><b>Date :</b> <%= review.createAt.toString().split(" ").slice(1,4).join("-") %></span><br>
                                     <span><b>Time :</b> <%= review.createAt.toString().split(" ")[4] %></span><br>
-                                    <!-- mobile view set and data and time re set ok -->
                                     <span><b>Comment :</b> <%= review.comment %></span><br>
                                     <span class="ratingBox"><b>Rating : &nbsp;</b> <p class="starability-result" data-rating="<%= review.rating %>"></p></span>
-                                    <!-- <i class="fa-solid fa-star"></i> -->
                                 </div>
                                 <div class="lists-btn mt-1">
                                     <button class="list-btn list-show"><a href="/listings/<%= review.listing %>">Show</a></button>
-                                    <form method="post" action="/profile/review/<%= review.listing %>/<%= review._id %>?_method=DELETE">
+                                    <form method="post" action="/profile/review/<%= review.listing %>/<%= review._id %>?_method=DELETE" class="needs-validation">
                                         <button type="reset" class="list-btn list-delete" id="delete-confirm">Delete</button>
                                         <div class="fnx-fixed-dis">
                                             <div class="delete-fnx" style="display: none;">
@@ -215,8 +215,6 @@
                 <% } %>
             </div>
         </div>
-
-
     </div>
 <script src="/js/delete-confirm.js"></script>
 <script src="/js/profile.js"></script>
