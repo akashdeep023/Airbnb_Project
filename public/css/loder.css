@@ -1,0 +1,22 @@
+/* loder-------------- */
+#loder{
+    position: fixed;
+    z-index: 250;
+    height: 50x;
+    width: 50px;
+    top: 45vh;
+    left: calc(50% - 25px);
+}
+.container form button:disabled{
+    background-color: rgba(0, 255, 255, 0.709) !important;
+    color: black !important;
+    cursor: not-allowed !important;
+}
+@media (min-width: 767px) {
+    #loder{
+        height: 80px;
+        width: 80px;
+        top: 45vh;
+        left: calc(50% - 40px);
+    }
+}

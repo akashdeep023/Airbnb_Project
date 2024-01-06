@@ -1,0 +1,41 @@
+<% layout("/layouts/boilerplate") %>
+<link rel="stylesheet" href="/css/button-style.css">
+<div class="row mt-3 mx-auto">
+        <div class="col-md-8 mx-auto">
+            <h2>Update User Image</h2>
+            <form action="/update-image/<%= user._id %>" method="post" class="needs-validation" enctype="multipart/form-data" novalidate>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Original Image Preview</label><br>
+                    <% if(!currUser.image.url){ %>
+                        <img src="/Icon/navbar-icon-user.png" alt="Original Image" class="listingImg-update"
+                            id="update-img">
+                        <% }else{ %>
+                            <img src="<%= user.image.url %>" alt="Original Image" class="listingImg-update"
+                        id="update-img">
+                    <% } %>
+                </div>
+                <div class=" row mb-3">
+                    <div class="col-10">
+                        <label for="image" class="form-label">Add Image</label>
+                        <input type="file" name="image" class="form-control border border-black border-opacity-50" id="verify-img" required onchange="previewImage()">
+                        <p id="errorContainer"></p>
+                    </div>
+                    <div class="col-2">
+                        <label class="form-control border border-white" style="margin-left: -15px;font-weight: 700;" for="verify">Verify</label>
+                        <input type="checkbox" id="verify" class="form-btn btn ms-2 border border-black border-opacity-50"  required style="height: 25px; width:25px;">
+                        <div class="invalid-feedback">Varify</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Add Image Preview</label><br>
+                    <div id="imagePreview">
+                        <img src="/Icon/update-img-pre.png" alt="demo">
+                    </div>
+                </div>
+                <button class="btn btn-primary styleBtn">Update</button>
+            </form>
+        </div>
+    </div>
+
+<script src="/js/newImg-size.js"></script>
+<script src="/js/image-preview.js"></script>
