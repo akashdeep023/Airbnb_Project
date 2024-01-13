@@ -1,9 +1,25 @@
 <% layout("/layouts/boilerplate") %>
 <link rel="stylesheet" href="/css/button-style.css">
+<link rel="stylesheet" href="/css/auth-account.css">
 <body>
-    <div class="row mt-3 mx-auto"><!-- style="height: calc(100vh - 15.5rem);" -->
-        <div class="col-md-8 mx-auto">
-            <h2>Signup on WonderLust</h2>
+    <!-- <div class="row mt-3 mx-auto">
+        <div class="col-md-8 mx-auto"> -->
+    <div id="account-set-main">
+        <div id="account-set">
+
+            <h2>SignUp on Airbnb Project</h2>
+            <h4 class="mt-2 mb-3">Have an account? <a href="/login">Log In</a></h4>
+            <div id="auth-account">
+                <a href="/auth/google">
+                    <img src="/Icon/google.png" alt="">
+                    <div>Continue with Google&nbsp;&nbsp;&nbsp;</div>
+                </a>
+                <a href="/auth/facebook">
+                    <img src="/Icon/facebook_auth.png" alt="">
+                    <div>Continue with Facebook</div>
+                </a>
+                <p class="mt-2">&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&nbsp;<b>Or</b>&nbsp;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&nbsp;</p>
+            </div>
             <form action="/signup" method="post" class="needs-validation" novalidate>
 
                 <div class="mb-3">
