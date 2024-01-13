@@ -9,7 +9,7 @@
     background-color: lightskyblue;
     border-radius: 5px;
     padding: 30px 30px 40px 30px;
-    box-shadow:  0px 0px 10px rgba(255, 255, 255, 0.742) , 0px 5px 5px rgb(22, 6, 89);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.742), 0px 5px 5px rgb(22, 6, 89);
 }
 
 .profile-user {
@@ -163,46 +163,40 @@
     margin-bottom: 1rem;
 }
 
-.profile-img {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.profile-img img {
-    height: 180px;
-    width: 180px;
+div.profile-img {
+    position: relative;
+    height: 170px;
+    width: 170px;
+    box-shadow: 0px 0px 5px black;
     border-radius: 50%;
     overflow: hidden;
-    filter: drop-shadow(5px 5px 10px black);
-    cursor: pointer;
-    margin-bottom: 5px;
 }
 
-.profile-img img:hover {
-    filter: drop-shadow(3px 3px 5px black);
+div.profile-img > img {
+    height: inherit;
+    width: inherit;
 }
 
-.profile-img span a {
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    height: 28px;
-    background-color: rgb(19, 19, 143);
-    text-align: center;
-    font-weight: 600;
-    font-size: .9rem;
-    color: white;
+div.profile-img > div {
+    position: absolute;
+    bottom: 0px;
+    height: 60px;
+    width: inherit;
+    background-color: rgba(0, 0, 0, 0.704);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+}
+
+div.profile-img > div a {
     text-decoration: none;
-    padding: 5px 40px;
-    box-shadow: 0px 3px 5px black;
+    font-size: 2rem;
+    color: rgb(224, 224, 224);
 }
 
-.profile-img span a:hover {
-    background-color: #1f1184;
-    border: .5px solid rgba(0, 0, 0, 0.453);
-    box-shadow: inset 0px 5px 5px black;
-    color: rgb(181, 181, 181);
-    font-weight: 700;
+div.profile-img > div:hover {
+    opacity: 1;
 }
 
 @media (max-width: 586px) {
@@ -254,12 +248,23 @@
         display: flex;
     }
 
-    .profile-img img {
+    div.profile-img {
+        min-height: 120px;
+        min-width: 120px;
         height: 120px;
         width: 120px;
     }
-    .profile-img span a {
-        padding: 5px 15px;
-        font-size: .8rem;
+
+    .main-profile-detail {
+        padding: 25px 5px;
+    }
+
+    div.profile-img > div {
+        opacity: 1;
+        height: 40px;
+    }
+
+    div.profile-img > div a i {
+        font-size: 1.5rem;
     }
 }
