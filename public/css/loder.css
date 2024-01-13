@@ -4,7 +4,7 @@
     z-index: 250;
     height: 50x;
     width: 50px;
-    top: 45vh;
+    top: 30vh;
     left: calc(50% - 25px);
 }
 .container form button:disabled{
@@ -16,7 +16,6 @@
     #loder{
         height: 80px;
         width: 80px;
-        top: 45vh;
         left: calc(50% - 40px);
     }
 }
