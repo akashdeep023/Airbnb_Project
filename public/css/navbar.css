@@ -6,15 +6,6 @@
     filter: contrast(2);
 }
 
-.imgAirbnb-s {
-    height: 2.1rem;
-    width: 1.9rem;
-    filter: contrast(2);
-    margin-top: 2px;
-    margin-left: .75rem;
-    display: none !important;
-}
-
 .nav-box {
     height: 5.5rem;
 }
@@ -74,9 +65,6 @@
     filter:drop-shadow( 0px 0px 1px black);
 }
 
-/* .nav-user div img {
-    transition: all 1s ease-in 0s;
-} */
 
 .user-fnx {
     flex-direction: column;
@@ -183,13 +171,11 @@
 }
 
 @media (max-width: 767px) {
-    .nav-search-search,
-    .imgAirbnb {
+    .nav-search-search{
         display: none !important;
     }
 
-    #nav-search-hide,
-    .imgAirbnb-s {
+    #nav-search-hide {
         display: flex !important;
     }
 
