@@ -9,10 +9,12 @@
                     <label for="detail-find">Update Details</label>
                     <input type="radio" name="find" id="detail-find" checked>
                 </div>
+                <% if(!user.providerId){ %>
                 <div>
                     <label for="password-find">Update Password</label>
                     <input type="radio" name="find" id="password-find">
                 </div>
+                <% } %>
                 <div>
                     <label for="image-find">Update Image</label>
                     <input type="radio" name="find" id="image-find">
@@ -50,7 +52,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="lName" class="form-label">Last Name</label>
-                        <input id="lName" type="text" placeholder="Enter Last Name" name="lName" value="<%= user.lName %>" class="form-control border border-black border-opacity-50" required>
+                        <input id="lName" type="text" placeholder="Enter Last Name" name="lName" value="<%= user.lName %>" class="form-control border border-black border-opacity-50">
                         <div class="valid-feedback">Looks good!</div>
                         <div class="invalid-feedback">Last Name should be valid</div>
                     </div>
