@@ -12,7 +12,7 @@
 				}
 				else {
 					document.querySelector("#loder").style.display = "inline"
-					document.querySelector(".pageblur").style.opacity = ".3"
+					document.querySelector(".pageblur").style.opacity = ".5"
 					event.submitter.disabled = true;
 					event.submitter.innerHTML = "Loading.."
 					event.submitter.style.fontSize = ".8rem"
