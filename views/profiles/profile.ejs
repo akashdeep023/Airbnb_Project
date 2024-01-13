@@ -6,11 +6,15 @@
             <div class="main-profile-detail">
                 <div class="profile-img">
                     <% if(!currUser.image.url) {%>
-                        <img src="/Icon/navbar-icon-user.png" alt="Profile">
+                        <img src="/Icon/navbar-icon-user.png">
                     <% } else{%>
-                        <img src="<%= currUser.image.url %>" alt="Profile">
+                        <img src="<%= currUser.image.url %>">
                     <% } %>
-                    <span><a href="/change-image/<%= currUser._id %>">Change Image</a></span>
+                    <div id="change-image">
+                        <a href="/change-image/<%= currUser._id %>">
+                            <i class="fa-solid fa-camera"></i>
+                        </a>
+                    </div>
                 </div>
                 <div class="profile-user">
                     <h3><span>Name : </span><%= currUser.fName.split("")[0].toUpperCase() %><%= currUser.fName.slice(1).toLowerCase() %>&nbsp;<%= currUser.lName %>
