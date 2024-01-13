@@ -14,6 +14,8 @@ const listingRouter = require("./routers/listing.js");
 const reviewRouter = require("./routers/review.js");
 const userRouter = require("./routers/user.js");
 const profileRouter = require("./routers/profile.js");
+const googleRoute = require("./routers/google.js");
+const facebookRoute = require("./routers/facebook.js");
 
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
@@ -99,6 +101,8 @@ app.use((req, res, next) => {
 	next();
 });
 
+app.use("/auth/google", googleRoute);
+app.use("/auth/facebook", facebookRoute);
 app.use("/", userRouter);
 app.use("/profile", profileRouter);
 app.use("/listings", listingRouter);
