@@ -13,12 +13,15 @@ const userSchema = Schema({
     },
     lName:{
         type: String,
-        required: true
+        // required: true
     },
     image: {
 		url: String,
 		filename: String,
-	},
+    },
+    // --------google------------
+    providerId: String,
+    provider: String,
 })
 
 userSchema.plugin(passportLocalMongoose);
