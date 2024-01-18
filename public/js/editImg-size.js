@@ -3,7 +3,7 @@ const fileInput = document.getElementById("verify-img");
 const errorContainer = document.getElementById("errorContainer");
 
 fileInput.addEventListener("click", function () {
-  if (fileInput.files.length == 0) {
+  if (fileInput.files.length >= 0) {
     varify.checked = false;
     return;
   }
