@@ -1,4 +1,4 @@
-![image](https://github.com/akashdeep023/Airbnb_Project/assets/126412088/fa543b33-9e48-4f3a-ad5c-9d01d8935b1b)# Airbnb-Inspired Full-Stack Web Application 🚀
+# Airbnb-Inspired Full-Stack Web Application 🚀
 
 <p align="center">
   <b style="color: blue;  ">Visitor count</b>
