@@ -94,49 +94,65 @@ Excited to share my journey of developing a feature-rich full-stack web applicat
 
 Follow these steps to set up and run the project locally:
 
-1. **Clone the Repository:**
+1.  **Clone the Repository:**
 
     ```bash
     git clone https://github.com/akashdeep023/Airbnb_Project.git
     cd Airbnb_Project
     ```
 
-2. **Install Dependencies:**
+2.  **Install Dependencies:**
 
     ```bash
     npm install
     ```
 
-3. **Set Up Environment Variables:**
+3.  **Set Up Environment Variables:**
 
     Configure the following environment variables by creating a .env file in the root of your project:
 
     ```bash
-    CLOUD_NAME=
-    CLOUD_API_KEY=
-    CLOUD_API_SECRET=
-    MAP_TOKEN=
-    ATLASDB_URL=
-    SECRET=
-    GOOGLE_CLIENT_ID=
-    GOOGLE_CLIENT_SECRET=
-    FACEBOOK_APP_ID=
-    FACEBOOK_APP_SECRET=
-    GOOGLE_CALLBACK_URL=
-    FACEBOOK_CALLBACK_URL=
+    #https://cloudinary.com/  (Cloudinary) (Change key)
+    CLOUD_NAME=kjkdmckdhjks
+    CLOUD_API_KEY=89340593499490394
+    CLOUD_API_SECRET=jdskLKJlklkdlsdfkKKdsdkkd
+
+    #https://www.mapbox.com/ (Mapbox)
+    MAP_TOKEN=pk.eyJ1IjoiZGVsdGEtc3R1ZHVlbnQiLCJhIjoiY2xvMDk0MTVhMTJ3ZDJrcGR5ZDFkaHl4ciJ9.Gj2VU1wvxc7rFVt5E4KLOQ
+
+    #https://www.mongodb.com/ (MongoDb Atlas) (Change key)
+    ATLASDB_URL=mongodb+srv://demo:kLKJFKOEMNDDOI9089dndd@cluster0.kkdnvkdkds.mongodb.net/?retryWrites=true&w=majority
+
+    #Add Random Secret Key
+    SECRET=ckcdenlksufoifafknddsoiddfkadsfafd
+
+    #https://console.developers.google.com/ (Google Developer Console) (Change key)
+    GOOGLE_CLIENT_ID=89038948394-kjfdkcmckdmckdfsid94jkkknd9sd4.apps.googleusercontent.com
+    GOOGLE_CLIENT_SECRET=KDJKDF-4KJDF894NF-DFKEF9MN-NFKEJD
+
+    #https://developers.facebook.com/ (Facebook Developer Console) (Change key)
+    FACEBOOK_APP_ID=94383859383287
+    FACEBOOK_APP_SECRET=89diodfjd9r98ddfjsodwj9df8d
+
+    #Add redirect URL in Google Developer Console
+    GOOGLE_CALLBACK_URL=http://localhost:8080/auth/google/callback
+
+    #Add redirect URL in Facebook Developer Console
+    FACEBOOK_CALLBACK_URL=http://localhost:8080/auth/facebook/callback
+
     ```
 
     Replace the values with your specific configurations.
 
-4. **Run the Application:**
+4.  **Run the Application:**
 
     ```bash
     node app.js
     ```
 
-5. **Open in Your Browser:**
+5.  **Open in Your Browser:**
 
-    Open http://localhost:8080/listings in your web browser.
+    Open `http://localhost:8080/listings` in your web browser.
 
 ## Challenges & Solutions
 
@@ -151,10 +167,6 @@ A heartfelt thank you to Shradha Khapra didi and AMAN DHATTARWAL bhaiya at #Apna
 Akash Deep \
 Email: ad3500476@gmail.com \
 LinkedIn : https://www.linkedin.com/in/akashdeep023/
-
-## Project Link
-
-[Live Link](https://airbnb-project-jack.onrender.com/)
 
 ## Thank You
 
@@ -205,15 +217,12 @@ Thank you for exploring Airbnb! Your feedback is valuable. If you have any sugge
 ![image](https://github.com/akashdeep023/Airbnb_Project/assets/126412088/4d0ad659-0f7a-4189-919e-33274cbf95cc)
 ![image](https://github.com/akashdeep023/Airbnb_Project/assets/126412088/a2c161da-cebd-4154-b26b-45f4da77c4cb)
 
-
 **Edit Page**
 ![image](https://github.com/akashdeep023/Airbnb_Project/assets/126412088/0667a6ee-5136-460e-ae6f-c64bd9859388)
 ![image](https://github.com/akashdeep023/Airbnb_Project/assets/126412088/60113611-b7ab-40df-a29a-75d32a49671c)
 
-
 **Filter Page**
 ![image](https://github.com/akashdeep023/Airbnb_Project/assets/126412088/6df98108-a1fc-462c-bda6-cf7563b6027e)
 ![image](https://github.com/akashdeep023/Airbnb_Project/assets/126412088/c8ff9e97-739e-44c4-8303-ca96b1153eec)
-
 
 ### Thanks for visit... 😊😊😊
