@@ -111,6 +111,8 @@ Follow these steps to set up and run the project locally:
 
     Configure the following environment variables by creating a .env file in the root of your project:
 
+    Example :-
+
     ```bash
     #https://cloudinary.com/  (Cloudinary) (Change key)
     CLOUD_NAME=kjkdmckdhjks
